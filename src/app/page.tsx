@@ -25,16 +25,6 @@ const itemVariants = {
   },
 }
 
-const textVariants = {
-  hidden: { opacity: 0 },
-  visible: (i: number) => ({
-    opacity: 1,
-    transition: {
-      delay: i * 0.1,
-    },
-  }),
-}
-
 export default function Home() {
   return (
     <div className="relative min-h-screen overflow-hidden bg-dark-bg">
