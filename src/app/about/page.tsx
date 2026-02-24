@@ -93,7 +93,7 @@ export default function About() {
             About <span className="gradient-text">Me</span>
           </motion.h1>
           <motion.p variants={itemVariants} className="text-xl text-gray-300 max-w-3xl mx-auto">
-            I'm a final-year Data Science student building ML systems with mathematical intuition and engineering discipline. 
+            I&apos;m a final-year Data Science student building ML systems with mathematical intuition and engineering discipline. 
             Preparing for ML internships with a focus on GenAI and LLM systems.
           </motion.p>
         </motion.div>

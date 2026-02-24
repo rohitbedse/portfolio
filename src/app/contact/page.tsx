@@ -92,7 +92,7 @@ export default function Contact() {
             Get in <span className="gradient-text">Touch</span>
           </motion.h1>
           <motion.p variants={itemVariants} className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Interested in collaborating? Have questions about my work? Let's connect. I'm always open
+            Interested in collaborating? Have questions about my work? Let&apos;s connect. I&apos;m always open
             to discussing ML, GenAI, and building cool systems.
           </motion.p>
         </motion.div>

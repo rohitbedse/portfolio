@@ -105,7 +105,7 @@ export default function Blog() {
             <span className="gradient-text">Insights</span> & Articles
           </motion.h1>
           <motion.p variants={itemVariants} className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Deep explorations of ML concepts, engineering practices, and AI system design. Written for those who want to understand the "why" behind the code.
+            Deep explorations of ML concepts, engineering practices, and AI system design. Written for those who want to understand the &quot;why&quot; behind the code.
           </motion.p>
         </motion.div>
       </section>
@@ -175,7 +175,7 @@ export default function Blog() {
           <BookOpen size={48} className="mx-auto mb-4 text-neon-cyan opacity-50" />
           <h3 className="text-2xl font-bold mb-4">More Articles Coming Soon</h3>
           <p className="text-gray-400 max-w-2xl mx-auto">
-            I'm writing detailed technical articles on ML fundamentals, GenAI systems, and production engineering.
+            I&apos;m writing detailed technical articles on ML fundamentals, GenAI systems, and production engineering.
             Subscribe to stay updated with new insights.
           </p>
         </motion.div>
