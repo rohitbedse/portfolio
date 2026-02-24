@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Mail, MessageSquare, Github, Linkedin, Phone } from 'lucide-react'
+import { Mail, MessageSquare, Github, Linkedin } from 'lucide-react'
 import { useState } from 'react'
 
 const containerVariants = {
