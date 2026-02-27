@@ -4,10 +4,6 @@ import { motion } from 'framer-motion'
 import { useState } from 'react'
 import { Github, ExternalLink, Star } from 'lucide-react'
 
-const itemVariants = {
-  hidden: { opacity: 0, y: 24 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
-}
 
 const projects = [
   {
@@ -163,8 +159,8 @@ export default function ProjectsPage() {
               key={cat}
               onClick={() => setSelected(cat)}
               className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all ${selected === cat
-                  ? 'text-black'
-                  : 'glass text-gray-400 hover:text-white border border-white/10'
+                ? 'text-black'
+                : 'glass text-gray-400 hover:text-white border border-white/10'
                 }`}
               style={
                 selected === cat
