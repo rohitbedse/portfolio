@@ -107,15 +107,6 @@ const articles = [
   },
 ]
 
-const categoryColors: Record<string, string> = {
-  EDA: 'var(--cyan)',
-  'Machine Learning': 'var(--purple)',
-  Statistics: 'var(--gold)',
-  'Time Series': 'var(--pink)',
-  SQL: 'var(--cyan)',
-  Clustering: 'var(--purple)',
-  Visualization: 'var(--pink)',
-}
 
 export default function BlogPage() {
   const featured = articles.filter(a => a.featured)
