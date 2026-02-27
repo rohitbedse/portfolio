@@ -264,25 +264,30 @@ export default function HomePage() {
       {/* ══════════ HERO ══════════ */}
       <section
         id="hero"
-        className="relative min-h-screen flex items-center overflow-hidden bg-grid"
+        className="relative min-h-screen flex items-center justify-center overflow-hidden"
+        style={{ background: 'radial-gradient(ellipse 80% 60% at 50% 0%, rgba(0,212,255,0.07) 0%, transparent 60%), radial-gradient(ellipse 60% 50% at 80% 100%, rgba(184,41,221,0.07) 0%, transparent 55%), var(--dark)' }}
       >
         <NeuralCanvas />
 
-        {/* Ambient orbs */}
-        <motion.div className="orb-cyan absolute pointer-events-none"
-          style={{ width: 800, height: 800, top: '-20%', left: '-15%' }}
-          animate={{ x: [0, 70, 0], y: [0, 50, 0] }}
-          transition={{ duration: 14, repeat: Infinity, ease: 'easeInOut' }}
+        {/* Ambient glows — clean & subtle */}
+        <div
+          className="absolute pointer-events-none"
+          style={{
+            width: 600, height: 600,
+            top: '50%', left: '50%',
+            transform: 'translate(-50%, -60%)',
+            background: 'radial-gradient(circle, rgba(0,212,255,0.06) 0%, transparent 70%)',
+            filter: 'blur(40px)',
+          }}
         />
-        <motion.div className="orb-purple absolute pointer-events-none"
-          style={{ width: 700, height: 700, bottom: '-15%', right: '-10%' }}
-          animate={{ x: [0, -60, 0], y: [0, -40, 0] }}
-          transition={{ duration: 12, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
-        />
-        <motion.div className="orb-pink absolute pointer-events-none"
-          style={{ width: 500, height: 500, top: '40%', right: '30%' }}
-          animate={{ x: [0, 40, 0], y: [0, -30, 0] }}
-          transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
+        <div
+          className="absolute pointer-events-none"
+          style={{
+            width: 400, height: 400,
+            bottom: '10%', right: '10%',
+            background: 'radial-gradient(circle, rgba(184,41,221,0.07) 0%, transparent 70%)',
+            filter: 'blur(50px)',
+          }}
         />
 
         {/* ── Floating Cards ── */}
@@ -327,14 +332,14 @@ export default function HomePage() {
 
         {/* ── Hero Content ── */}
         <motion.div
-          className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-20 w-full"
+          className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-20 w-full text-center"
           style={{ opacity: heroOpacity, y: heroY }}
         >
           <motion.div
             variants={containerV}
             initial="hidden"
             animate="visible"
-            className="max-w-3xl"
+            className="flex flex-col items-center"
           >
             {/* Available badge */}
             <motion.div variants={itemV} className="mb-8">
@@ -351,13 +356,13 @@ export default function HomePage() {
             </motion.h1>
 
             {/* Role typewriter */}
-            <motion.div variants={itemV} className="text-xl md:text-2xl font-semibold mb-6 flex items-center gap-3 flex-wrap">
+            <motion.div variants={itemV} className="text-xl md:text-2xl font-semibold mb-6 flex items-center justify-center gap-3 flex-wrap">
               <span style={{ color: 'var(--text-secondary)' }}>I&apos;m a</span>
               <Typewriter />
             </motion.div>
 
             {/* Description */}
-            <motion.p variants={itemV} className="text-base md:text-lg leading-relaxed mb-10 max-w-xl" style={{ color: 'var(--text-secondary)' }}>
+            <motion.p variants={itemV} className="text-base md:text-lg leading-relaxed mb-10 max-w-xl mx-auto" style={{ color: 'var(--text-secondary)' }}>
               Entry-level Data Scientist turning messy datasets into
               <span style={{ color: 'var(--cyan)' }}> predictive insights</span>.
               I build{' '}
@@ -367,7 +372,7 @@ export default function HomePage() {
             </motion.p>
 
             {/* CTA Buttons */}
-            <motion.div variants={itemV} className="flex flex-wrap gap-4 mb-12">
+            <motion.div variants={itemV} className="flex flex-wrap gap-4 mb-12 justify-center">
               <Link href="/projects" id="hero-cta-projects">
                 <motion.button
                   className="btn-primary flex items-center gap-2"
@@ -404,7 +409,7 @@ export default function HomePage() {
             </motion.div>
 
             {/* Skill chips */}
-            <motion.div variants={itemV} className="flex flex-wrap gap-2">
+            <motion.div variants={itemV} className="flex flex-wrap gap-2 justify-center">
               {[
                 { icon: '🐍', text: 'Python' },
                 { icon: '🤖', text: 'Scikit-learn' },
