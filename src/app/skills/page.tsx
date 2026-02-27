@@ -2,11 +2,9 @@
 
 import { motion } from 'framer-motion'
 import { useState } from 'react'
+import dynamic from 'next/dynamic'
 
-const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
-}
+const SkillConstellation = dynamic(() => import('@/components/SkillConstellation'), { ssr: false })
 
 const skillCategories = [
   {
@@ -89,13 +87,6 @@ const skillCategories = [
   },
 ]
 
-const proficiencyLabels = [
-  { range: '0-40', label: 'Learning', color: 'var(--pink)' },
-  { range: '40-70', label: 'Familiar', color: 'var(--gold)' },
-  { range: '70-85', label: 'Proficient', color: 'var(--purple)' },
-  { range: '85-100', label: 'Expert', color: 'var(--cyan)' },
-]
-
 function getColor(level: number) {
   if (level >= 85) return 'var(--cyan)'
   if (level >= 70) return 'var(--purple)'
@@ -105,6 +96,7 @@ function getColor(level: number) {
 
 export default function SkillsPage() {
   const [activeCategory, setActiveCategory] = useState<string | null>(null)
+  const [view, setView] = useState<'constellation' | 'grid'>('constellation')
 
   const filtered = activeCategory
     ? skillCategories.filter(c => c.category === activeCategory)
@@ -125,175 +117,163 @@ export default function SkillsPage() {
             <span>⚡</span> Technical Arsenal
           </span>
           <h1 className="hero-title text-5xl md:text-6xl mb-5">
-            <span className="text-white">My </span>
-            <span className="gradient-text">Skills</span>
+            <span className="text-white">Skill </span>
+            <span className="gradient-text">Galaxy</span>
           </h1>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            A curated overview of my technical toolkit — from data wrangling to model deployment.
-            Built through hands-on projects and continuous learning.
+            12 core skills orbiting my data science core — click any node to explore proficiency,
+            description, and projects. Built through real-world engineering.
           </p>
         </motion.div>
 
-        {/* Legend */}
+        {/* View toggle */}
         <motion.div
-          className="flex flex-wrap gap-3 justify-center mb-10"
+          className="flex gap-2 justify-center mb-10"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.3 }}
         >
-          {proficiencyLabels.map((l) => (
-            <div key={l.label} className="flex items-center gap-2 glass px-4 py-2 rounded-lg border border-white/08">
-              <div
-                className="w-3 h-3 rounded-full"
-                style={{ background: l.color }}
-              />
-              <span className="text-xs text-gray-400">
-                <span className="mono">{l.range}%</span> — {l.label}
-              </span>
-            </div>
-          ))}
-        </motion.div>
-
-        {/* Category filter tabs */}
-        <motion.div
-          className="flex flex-wrap gap-2 justify-center mb-12"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.4 }}
-        >
-          <button
-            onClick={() => setActiveCategory(null)}
-            className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all ${!activeCategory
-              ? 'text-black'
-              : 'glass text-gray-400 hover:text-white border border-white/10'
-              }`}
-            style={
-              !activeCategory
-                ? { background: 'linear-gradient(135deg, var(--cyan), var(--purple))' }
-                : {}
-            }
-          >
-            All Skills
-          </button>
-          {skillCategories.map((cat) => (
+          {(['constellation', 'grid'] as const).map(v => (
             <button
-              key={cat.category}
-              onClick={() => setActiveCategory(cat.category === activeCategory ? null : cat.category)}
-              className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all ${activeCategory === cat.category
-                ? 'text-black'
-                : 'glass text-gray-400 hover:text-white border border-white/10'
-                }`}
+              key={v}
+              onClick={() => setView(v)}
+              className="px-5 py-2 rounded-lg text-sm font-semibold transition-all capitalize"
               style={
-                activeCategory === cat.category
-                  ? { background: `linear-gradient(135deg, ${cat.color}, ${cat.color}99)` }
-                  : {}
+                view === v
+                  ? { background: 'linear-gradient(135deg, var(--cyan), var(--purple))', color: '#000' }
+                  : { background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.1)', color: 'var(--text-secondary)' }
               }
             >
-              {cat.emoji} {cat.category.split(' ')[0]}
+              {v === 'constellation' ? '🌌 Constellation' : '📋 Grid View'}
             </button>
           ))}
         </motion.div>
       </section>
 
-      {/* ══════════ SKILL GRIDS ══════════ */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-24">
-        <motion.div
-          className="space-y-12"
-          initial="hidden"
-          animate="visible"
-          variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.1 } } }}
-        >
-          {filtered.map((cat) => (
-            <motion.div
-              key={cat.category}
-              variants={itemVariants}
-            >
-              {/* Category Header */}
-              <div className="flex items-center gap-3 mb-6">
-                <span className="text-2xl">{cat.emoji}</span>
-                <h2
-                  className="text-2xl font-bold"
-                  style={{ color: cat.color }}
-                >
-                  {cat.category}
-                </h2>
-                <div
-                  className="flex-1 h-px"
-                  style={{ background: `linear-gradient(90deg, ${cat.color}40, transparent)` }}
-                />
-              </div>
-
-              {/* Skill Cards Grid */}
-              <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
-                {cat.skills.map((skill, si) => {
-                  const barColor = getColor(skill.level)
-                  return (
-                    <motion.div
-                      key={skill.name}
-                      className="glass rounded-xl border border-white/08 p-5 group hover:border-white/20 transition-all tilt-card"
-                      initial={{ opacity: 0, scale: 0.95 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: si * 0.05 }}
-                    >
-                      <div className="flex items-center justify-between mb-3">
-                        <div className="flex items-center gap-2">
-                          <span className="text-xl">{skill.icon}</span>
-                          <span className="font-semibold text-white text-sm">{skill.name}</span>
-                        </div>
-                        <span
-                          className="mono text-xs font-bold"
-                          style={{ color: barColor }}
-                        >
-                          {skill.level}%
-                        </span>
-                      </div>
-
-                      {/* Progress bar */}
-                      <div
-                        className="h-1.5 rounded-full"
-                        style={{ background: 'rgba(255,255,255,0.07)' }}
-                      >
-                        <motion.div
-                          className="h-full rounded-full relative overflow-hidden"
-                          style={{ background: `linear-gradient(90deg, ${barColor}, ${barColor}80)` }}
-                          initial={{ width: 0 }}
-                          whileInView={{ width: `${skill.level}%` }}
-                          viewport={{ once: true }}
-                          transition={{ duration: 1, delay: si * 0.05 + 0.2, ease: 'easeOut' }}
-                        >
-                          <div
-                            className="absolute inset-0"
-                            style={{
-                              background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent)',
-                              animation: 'shimmer 2s ease-in-out infinite',
-                            }}
-                          />
-                        </motion.div>
-                      </div>
-                    </motion.div>
-                  )
-                })}
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
-      </section>
-
-      {/* ══════════ TOP TOOLS SHOWCASE ══════════ */}
-      <section
-        className="py-20"
-        style={{ background: 'linear-gradient(180deg, transparent, rgba(0,212,255,0.03) 50%, transparent)' }}
-      >
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      {/* ══════════ CONSTELLATION VIEW ══════════ */}
+      {view === 'constellation' && (
+        <section className="max-w-2xl mx-auto px-4 pb-24">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6 }}
           >
-            <h2 className="text-3xl font-bold text-white mb-10">
-              My Daily <span className="gradient-text">Toolkit</span>
-            </h2>
+            <SkillConstellation />
+          </motion.div>
+        </section>
+      )}
+
+      {/* ══════════ GRID VIEW ══════════ */}
+      {view === 'grid' && (
+        <>
+          {/* Category filter */}
+          <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-4">
+            <motion.div
+              className="flex flex-wrap gap-2 justify-center mb-10"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.2 }}
+            >
+              <button
+                onClick={() => setActiveCategory(null)}
+                className="px-4 py-2 rounded-lg text-sm font-semibold transition-all"
+                style={
+                  !activeCategory
+                    ? { background: 'linear-gradient(135deg, var(--cyan), var(--purple))', color: '#000' }
+                    : { background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.1)', color: 'var(--text-secondary)' }
+                }
+              >
+                All Skills
+              </button>
+              {skillCategories.map(cat => (
+                <button
+                  key={cat.category}
+                  onClick={() => setActiveCategory(cat.category === activeCategory ? null : cat.category)}
+                  className="px-4 py-2 rounded-lg text-sm font-semibold transition-all"
+                  style={
+                    activeCategory === cat.category
+                      ? { background: `linear-gradient(135deg, ${cat.color}, ${cat.color}99)`, color: '#000' }
+                      : { background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.1)', color: 'var(--text-secondary)' }
+                  }
+                >
+                  {cat.emoji} {cat.category.split(' ')[0]}
+                </button>
+              ))}
+            </motion.div>
+          </section>
+
+          <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-24">
+            <motion.div
+              className="space-y-12"
+              initial="hidden"
+              animate="visible"
+              variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.1 } } }}
+            >
+              {filtered.map(cat => (
+                <motion.div
+                  key={cat.category}
+                  variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5 } } }}
+                >
+                  <div className="flex items-center gap-3 mb-6">
+                    <span className="text-2xl">{cat.emoji}</span>
+                    <h2 className="text-2xl font-bold" style={{ color: cat.color }}>{cat.category}</h2>
+                    <div className="flex-1 h-px" style={{ background: `linear-gradient(90deg, ${cat.color}40, transparent)` }} />
+                  </div>
+
+                  <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
+                    {cat.skills.map((skill, si) => {
+                      const barColor = getColor(skill.level)
+                      return (
+                        <motion.div
+                          key={skill.name}
+                          className="glass rounded-xl border border-white/08 p-5 group hover:border-white/18 transition-all tilt-card"
+                          initial={{ opacity: 0, scale: 0.95 }}
+                          whileInView={{ opacity: 1, scale: 1 }}
+                          viewport={{ once: true }}
+                          transition={{ delay: si * 0.05 }}
+                        >
+                          <div className="flex items-center justify-between mb-3">
+                            <div className="flex items-center gap-2">
+                              <span className="text-xl">{skill.icon}</span>
+                              <span className="font-semibold text-white text-sm">{skill.name}</span>
+                            </div>
+                            <span className="mono text-xs font-bold" style={{ color: barColor }}>{skill.level}%</span>
+                          </div>
+
+                          <div className="h-1.5 rounded-full" style={{ background: 'rgba(255,255,255,0.07)' }}>
+                            <motion.div
+                              className="h-full rounded-full relative overflow-hidden"
+                              style={{ background: `linear-gradient(90deg, ${barColor}, ${barColor}70)` }}
+                              initial={{ width: 0 }}
+                              whileInView={{ width: `${skill.level}%` }}
+                              viewport={{ once: true }}
+                              transition={{ duration: 1, delay: si * 0.05 + 0.2, ease: 'easeOut' }}
+                            >
+                              <div
+                                className="absolute inset-0"
+                                style={{
+                                  background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent)',
+                                  animation: 'shimmer-slide 2s ease-in-out infinite',
+                                }}
+                              />
+                            </motion.div>
+                          </div>
+                        </motion.div>
+                      )
+                    })}
+                  </div>
+                </motion.div>
+              ))}
+            </motion.div>
+          </section>
+        </>
+      )}
+
+      {/* ══════════ TOOLKIT SHOWCASE ══════════ */}
+      <section className="py-20" style={{ background: 'linear-gradient(180deg, transparent, rgba(0,212,255,0.025) 50%, transparent)' }}>
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+            <h2 className="text-3xl font-bold text-white mb-10">My Daily <span className="gradient-text">Toolkit</span></h2>
             <div className="flex flex-wrap gap-4 justify-center">
               {[
                 { name: 'Python', emoji: '🐍', color: '#3b82f6' },
@@ -308,18 +288,16 @@ export default function SkillsPage() {
                 { name: 'Seaborn', emoji: '🎨', color: '#a855f7' },
                 { name: 'XGBoost', emoji: '⚡', color: '#ef4444' },
                 { name: 'Streamlit', emoji: '🚀', color: '#00d4ff' },
-              ].map((tool) => (
+              ].map(tool => (
                 <motion.div
                   key={tool.name}
                   className="glass px-5 py-3 rounded-xl border border-white/10 flex items-center gap-2 cursor-default"
                   whileHover={{ scale: 1.08, y: -4 }}
                   whileTap={{ scale: 0.95 }}
-                  style={{ borderColor: `${tool.color}40` }}
+                  style={{ borderColor: `${tool.color}35` }}
                 >
                   <span className="text-xl">{tool.emoji}</span>
-                  <span className="font-semibold text-sm" style={{ color: tool.color }}>
-                    {tool.name}
-                  </span>
+                  <span className="font-semibold text-sm" style={{ color: tool.color }}>{tool.name}</span>
                 </motion.div>
               ))}
             </div>

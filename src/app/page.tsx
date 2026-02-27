@@ -41,7 +41,7 @@ function NeuralCanvas() {
       vy: (Math.random() - 0.5) * 0.35,
       size: Math.random() * 2.2 + 0.8,
       opacity: Math.random() * 0.5 + 0.2,
-      color: ['0,212,255', '139,92,246', '255,45,120'][Math.floor(Math.random() * 3)],
+      color: ['0,212,255', '184,41,221', '0,255,136'][Math.floor(Math.random() * 3)],
       pulse: Math.random() * Math.PI * 2,
       pulseDir: Math.random() > 0.5 ? 1 : -1,
     }))
