@@ -2,120 +2,172 @@
 
 import { motion } from 'framer-motion'
 import { useState } from 'react'
-import { Github, ExternalLink, Star } from 'lucide-react'
+import { Github } from 'lucide-react'
 
 const projects = [
   {
     id: 1,
+    title: 'YouTube Comment Analysis',
+    category: 'NLP',
+    emoji: '📺',
+    description:
+      'Developed a comment analysis system using NLP to extract sentiment, summaries, and key themes from user comments with multilingual support.',
+    fullDesc:
+      'Built a full NLP pipeline supporting multilingual input through automatic translation. Uses transformer-based models for sentiment classification and summarization, along with keyword extraction and visualization for insights.',
+    tech: ['Python', 'NLP', 'Transformers', 'NLTK', 'Streamlit', 'JavaScript'],
+    metric: 'Major Project',
+    metricColor: 'var(--cyan)',
+    impact: 'End-to-end NLP analysis system with multi-language support',
+    github: 'https://github.com/rohitbedse/YouTube-comment-analysis---Major-Project',
+    featured: true,
+  },
+  {
+    id: 2,
+    title: 'Swiggy Delivery Time Prediction',
+    category: 'Regression',
+    emoji: '🛵',
+    description:
+      'End-to-end ML pipeline for predicting food delivery times using regression models with feature engineering on real-world Swiggy data.',
+    fullDesc:
+      'Built a complete ML pipeline from data preprocessing to model deployment. Applied feature engineering, model selection, and evaluation to predict delivery times accurately.',
+    tech: ['Python', 'Scikit-learn', 'Pandas', 'Flask', 'Makefile', 'ML Pipeline'],
+    metric: 'ML Pipeline',
+    metricColor: 'var(--green)',
+    impact: 'Production-ready prediction pipeline with automated setup',
+    github: 'https://github.com/rohitbedse/Swiggy_delivery_time_prediction',
+    featured: true,
+  },
+  {
+    id: 3,
+    title: 'LangChain Projects',
+    category: 'GenAI',
+    emoji: '🔗',
+    description:
+      'Collection of projects built with LangChain framework exploring RAG pipelines, LLM applications, and generative AI capabilities.',
+    fullDesc:
+      'Exploring modern AI capabilities using LangChain — including Retrieval-Augmented Generation, prompt engineering, and building LLM-powered data tools.',
+    tech: ['Python', 'LangChain', 'LLMs', 'RAG', 'Vector DBs', 'OpenAI'],
+    metric: 'GenAI / LLM',
+    metricColor: 'var(--purple)',
+    impact: 'Hands-on exploration of cutting-edge AI technologies',
+    github: 'https://github.com/rohitbedse/Langchain_Projects',
+    featured: true,
+  },
+  {
+    id: 4,
+    title: 'Movie Recommendation System',
+    category: 'ML',
+    emoji: '🎬',
+    description:
+      'Content-based movie recommendation system using TF-IDF vectorization and cosine similarity for finding similar movies.',
+    fullDesc:
+      'Built a content-based recommendation engine that processes movie metadata using TF-IDF and computes cosine similarity scores to suggest similar movies to users.',
+    tech: ['Python', 'TF-IDF', 'Cosine Similarity', 'Pandas', 'Scikit-learn'],
+    metric: 'Recommendation',
+    metricColor: 'var(--pink)',
+    impact: 'Content-based filtering with TF-IDF vectorization',
+    github: 'https://github.com/rohitbedse/Movie-Recommendation-using-TF-IDF-Cosine-Similarity-',
+    featured: false,
+  },
+  {
+    id: 5,
+    title: 'Chat with PDF (Mini Project)',
+    category: 'GenAI',
+    emoji: '📄',
+    description:
+      'Python-based project enabling interactive chat with PDF documents to extract and analyze content using AI.',
+    fullDesc:
+      'Interactive tool that allows users to upload PDF documents and query their content through natural language, leveraging AI models for document understanding.',
+    tech: ['Python', 'LangChain', 'PDF Parsing', 'LLM', 'Streamlit'],
+    metric: 'AI Chat',
+    metricColor: 'var(--cyan)',
+    impact: 'Interactive document Q&A powered by AI',
+    github: 'https://github.com/rohitbedse/Mini-Project',
+    featured: false,
+  },
+  {
+    id: 6,
+    title: 'Flights Dashboard',
+    category: 'Visualization',
+    emoji: '✈️',
+    description:
+      'Interactive flights data dashboard built with Python and SQL for analyzing flight patterns, pricing, and routes.',
+    fullDesc:
+      'Data visualization dashboard combining SQL queries and Python to analyze flight data, routes, pricing trends, and travel patterns with interactive charts.',
+    tech: ['Python', 'SQL', 'Plotly', 'HTML', 'Pandas', 'Dashboard'],
+    metric: 'Dashboard',
+    metricColor: 'var(--gold)',
+    impact: 'Interactive data visualization for flight analytics',
+    github: 'https://github.com/rohitbedse/Flights-Dashboard-using-Python-and-SQL',
+    featured: false,
+  },
+  {
+    id: 7,
     title: 'Customer Churn Prediction',
     category: 'Classification',
     emoji: '📉',
     description:
-      'End-to-end ML project predicting customer churn for a telecom company. Used SMOTE for class imbalance, feature importance analysis, and deployed a REST API with FastAPI.',
+      'ML classification model to predict customer churn using ensemble methods and feature engineering.',
     fullDesc:
-      'Analyzed 7,000+ customer records. Applied feature engineering, SMOTE oversampling, and trained Random Forest achieving 94.7% accuracy. Visualized SHAP values to explain predictions.',
-    tech: ['Python', 'Scikit-learn', 'SMOTE', 'FastAPI', 'SHAP', 'Pandas'],
-    metric: '94.7% Accuracy',
+      'Built predictive models for customer churn using Random Forest and gradient boosting with comprehensive feature engineering and model evaluation.',
+    tech: ['Python', 'Scikit-learn', 'Random Forest', 'Pandas', 'EDA'],
+    metric: 'Classification',
     metricColor: 'var(--green)',
-    impact: 'Reduced churn by 15% in simulated environment',
-    github: 'https://github.com',
-    demo: 'https://github.com',
-    featured: true,
-    stars: 42,
-  },
-  {
-    id: 2,
-    title: 'Sales Forecasting with ARIMA',
-    category: 'Time Series',
-    emoji: '📈',
-    description:
-      'Time-series forecasting model for retail sales data incorporating seasonality, trend decomposition, and automated ARIMA parameter selection.',
-    fullDesc:
-      'Processed 3 years of daily sales data. Applied Box-Jenkins methodology, seasonal decomposition, and AutoARIMA. Created interactive forecast dashboard with Plotly.',
-    tech: ['Python', 'Statsmodels', 'ARIMA', 'Plotly', 'Pandas', 'Prophet'],
-    metric: '30% Cost Reduction',
-    metricColor: 'var(--cyan)',
-    impact: 'Improved forecast accuracy by 30%, reducing stockouts',
-    github: 'https://github.com',
-    demo: 'https://github.com',
-    featured: true,
-    stars: 38,
-  },
-  {
-    id: 3,
-    title: 'Market Segmentation Engine',
-    category: 'Clustering',
-    emoji: '🎯',
-    description:
-      'K-Means clustering on 100K+ customers using RFM analysis (Recency, Frequency, Monetary). Built an interactive Streamlit dashboard for segment exploration.',
-    fullDesc:
-      'Applied PCA for dimensionality reduction, Elbow method + Silhouette score for optimal K, and created actionable customer personas for each segment.',
-    tech: ['Python', 'K-Means', 'PCA', 'Streamlit', 'Seaborn', 'SQL'],
-    metric: '25% ROI Increase',
-    metricColor: 'var(--purple)',
-    impact: 'Increased marketing ROI through personalized campaigns',
-    github: 'https://github.com',
-    demo: 'https://github.com',
-    featured: true,
-    stars: 29,
-  },
-  {
-    id: 4,
-    title: 'Netflix Content EDA',
-    category: 'EDA',
-    emoji: '🎬',
-    description:
-      'Comprehensive exploratory data analysis of 10,000+ Netflix titles with trend analysis, genre distribution, country insights, and content rating breakdown.',
-    fullDesc:
-      'Analyzed content strategies, type ratios, release patterns, and top contributing countries using rich visualizations and statistical summaries.',
-    tech: ['Python', 'Pandas', 'Plotly', 'Matplotlib', 'WordCloud', 'NumPy'],
-    metric: '10K+ Records',
-    metricColor: 'var(--pink)',
-    impact: 'Revealed key content strategy insights and trends',
-    github: 'https://github.com',
-    demo: 'https://github.com',
+    impact: 'Predictive modeling for business retention',
+    github: 'https://github.com/rohitbedse/Customer-Churn-Prediction',
     featured: false,
-    stars: 55,
   },
   {
-    id: 5,
-    title: 'A/B Testing Framework',
-    category: 'Statistics',
-    emoji: '⚖️',
-    description:
-      'Statistical A/B testing framework for web product experiments. Implemented z-test, t-test, chi-square, and Bayesian hypothesis testing with power analysis.',
-    fullDesc:
-      'Built reusable Python functions for experiment design, significance testing, effect size calculation, and results visualization. Used on 3 real campaigns.',
-    tech: ['Python', 'SciPy', 'Statsmodels', 'Matplotlib', 'Bayesian', 'Pandas'],
-    metric: '20% Conversion Lift',
-    metricColor: 'var(--gold)',
-    impact: 'Improved email campaign conversion by 20%',
-    github: 'https://github.com',
-    demo: 'https://github.com',
-    featured: false,
-    stars: 31,
-  },
-  {
-    id: 6,
-    title: 'House Price Regression',
+    id: 8,
+    title: 'House Price Prediction',
     category: 'Regression',
     emoji: '🏠',
     description:
-      'Kaggle-style regression project predicting house prices. Feature engineering, handling missing data, regularization (Ridge/Lasso) and ensemble stacking.',
+      'Regression model for predicting house prices with feature engineering, regularization, and ensemble methods.',
     fullDesc:
-      'Kaggle competition top 20% finish. Extensive feature engineering from 80 features, outlier handling, log-transformation of target, and ensemble blend of XGBoost + LGB.',
+      'Applied regression techniques including Ridge, Lasso, and ensemble stacking to predict house prices with extensive feature engineering.',
     tech: ['Python', 'XGBoost', 'Ridge', 'Lasso', 'Scikit-learn', 'Pandas'],
-    metric: 'Top 18% Kaggle',
+    metric: 'Regression',
     metricColor: 'var(--cyan)',
-    impact: 'Kaggle Housing Prices competition — top 18% finish',
-    github: 'https://github.com',
-    demo: 'https://github.com',
+    impact: 'Advanced regression with ensemble methods',
+    github: 'https://github.com/rohitbedse/House-Price-Prediction',
     featured: false,
-    stars: 22,
+  },
+  {
+    id: 9,
+    title: 'EDA on Insurance Dataset',
+    category: 'EDA',
+    emoji: '🏥',
+    description:
+      'Exploratory data analysis on health insurance dataset analyzing impact of age, BMI, smoking status on medical costs.',
+    fullDesc:
+      'Conducted comprehensive EDA on a health insurance dataset to analyze the impact of age, BMI, smoking status, and other factors on medical costs using Python.',
+    tech: ['Python', 'Pandas', 'Matplotlib', 'Seaborn', 'Statistics'],
+    metric: 'EDA',
+    metricColor: 'var(--purple)',
+    impact: 'Statistical analysis of healthcare cost factors',
+    github: 'https://github.com/rohitbedse/EDA-On---Insurance-Dataset',
+    featured: false,
+  },
+  {
+    id: 10,
+    title: 'Placement Prediction',
+    category: 'Classification',
+    emoji: '🎓',
+    description:
+      'Web application predicting student placement based on CGPA and IQ using ML model with Flask backend.',
+    fullDesc:
+      'A simple web application that predicts student placement based on CGPA and IQ using a machine learning model. Built with Flask, HTML, CSS, and JavaScript with real-time dynamic result display.',
+    tech: ['Python', 'Flask', 'ML', 'HTML/CSS', 'JavaScript'],
+    metric: 'Web App',
+    metricColor: 'var(--green)',
+    impact: 'Full-stack ML web application',
+    github: 'https://github.com/rohitbedse/Placement-Prediction',
+    featured: false,
   },
 ]
 
-const categories = ['All', 'Classification', 'Time Series', 'Clustering', 'EDA', 'Statistics', 'Regression']
+const categories = ['All', 'NLP', 'GenAI', 'ML', 'Regression', 'Classification', 'EDA', 'Visualization']
 
 function getCategoryCount(cat: string) {
   if (cat === 'All') return projects.length
@@ -169,9 +221,6 @@ export default function ProjectsPage() {
             <div className="flex gap-4">
               <a href={featuredProject.github} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-colors">
                 <Github size={16} /> View Code
-              </a>
-              <a href={featuredProject.demo} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm" style={{ color: 'var(--cyan)' }}>
-                <ExternalLink size={16} /> Live Demo
               </a>
             </div>
           </div>
@@ -287,10 +336,6 @@ export default function ProjectsPage() {
                   <span className="text-xs px-2 py-0.5 rounded glass border border-white/10 text-gray-400 mono">
                     {project.category}
                   </span>
-                  <div className="flex items-center gap-1 text-xs text-gray-500">
-                    <Star size={11} />
-                    {project.stars}
-                  </div>
                 </div>
 
                 <h2 className="text-lg font-bold text-white mb-3 group-hover:text-cyan-300 transition-colors">
@@ -326,16 +371,7 @@ export default function ProjectsPage() {
                   rel="noopener noreferrer"
                   className="flex items-center gap-1.5 text-sm text-gray-400 hover:text-white transition-colors"
                 >
-                  <Github size={14} /> Code
-                </a>
-                <a
-                  href={project.demo}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-1.5 text-sm"
-                  style={{ color: 'var(--cyan)' }}
-                >
-                  <ExternalLink size={14} /> Live Demo
+                  <Github size={14} /> View Code
                 </a>
                 <button
                   onClick={() => setExpanded(expanded === project.id ? null : project.id)}
@@ -360,7 +396,7 @@ export default function ProjectsPage() {
               More projects and notebooks available on my GitHub
             </p>
             <a
-              href="https://github.com"
+              href="https://github.com/rohitbedse"
               target="_blank"
               rel="noopener noreferrer"
               id="projects-github-cta"
