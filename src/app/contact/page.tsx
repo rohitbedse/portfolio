@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Mail, Github, Linkedin, Send, CheckCircle, MapPin, Clock, Zap } from 'lucide-react'
+import { Mail, Github, Linkedin, Twitter, Send, CheckCircle, MapPin, Clock, Zap } from 'lucide-react'
 import { useState } from 'react'
 
 const itemVariants = {
@@ -22,7 +22,7 @@ const socials = [
     icon: <Github size={22} />,
     label: 'GitHub',
     value: '@rohitbedse',
-    href: 'https://github.com/rohitbedse',
+    href: 'https://github.com',
     color: 'var(--purple)',
     desc: 'See my code & projects',
   },
@@ -30,9 +30,17 @@ const socials = [
     icon: <Linkedin size={22} />,
     label: 'LinkedIn',
     value: 'Rohit Bedse',
-    href: 'https://linkedin.com/in/rohitbedse',
+    href: 'https://linkedin.com',
     color: 'var(--blue)',
     desc: 'Professional networking',
+  },
+  {
+    icon: <Twitter size={22} />,
+    label: 'Twitter/X',
+    value: '@rohitbedse',
+    href: 'https://twitter.com',
+    color: 'var(--pink)',
+    desc: 'Data science thoughts',
   },
 ]
 
