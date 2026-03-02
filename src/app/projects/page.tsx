@@ -4,7 +4,6 @@ import { motion } from 'framer-motion'
 import { useState } from 'react'
 import { Github, ExternalLink, Star } from 'lucide-react'
 
-
 const projects = [
   {
     id: 1,
@@ -118,17 +117,69 @@ const projects = [
 
 const categories = ['All', 'Classification', 'Time Series', 'Clustering', 'EDA', 'Statistics', 'Regression']
 
+function getCategoryCount(cat: string) {
+  if (cat === 'All') return projects.length
+  return projects.filter(p => p.category === cat).length
+}
+
 export default function ProjectsPage() {
   const [selected, setSelected] = useState('All')
   const [expanded, setExpanded] = useState<number | null>(null)
 
   const filtered = selected === 'All' ? projects : projects.filter(p => p.category === selected)
+  const featuredProject = projects.find(p => p.featured && p.id === 1) ?? projects[0]
 
   return (
     <div className="min-h-screen pt-20" style={{ background: 'var(--dark)' }}>
 
+      {/* ══════════ FEATURED HERO ══════════ */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-8">
+        <motion.div
+          className="relative rounded-3xl overflow-hidden border border-white/10 p-8 sm:p-12"
+          style={{
+            background: 'linear-gradient(135deg, rgba(0,212,255,0.08) 0%, rgba(184,41,221,0.08) 50%, rgba(0,255,136,0.05) 100%)',
+          }}
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          {/* Mesh gradient background */}
+          <div
+            className="absolute inset-0 pointer-events-none"
+            style={{
+              background: 'radial-gradient(ellipse 60% 50% at 20% 30%, rgba(0,212,255,0.12) 0%, transparent 60%), radial-gradient(ellipse 50% 60% at 80% 70%, rgba(184,41,221,0.12) 0%, transparent 60%)',
+            }}
+          />
+          <div className="relative z-10">
+            <div className="flex items-start justify-between flex-wrap gap-4 mb-6">
+              <div>
+                <span className="section-badge mb-4">⭐ Featured Project</span>
+                <h2 className="text-3xl sm:text-5xl font-black text-white tracking-tight mt-3">
+                  {featuredProject.title}
+                </h2>
+              </div>
+              <span className="font-mono text-lg font-bold px-4 py-2 rounded-xl" style={{ background: 'rgba(0,255,136,0.1)', color: '#00ff88', border: '1px solid rgba(0,255,136,0.3)' }}>
+                {featuredProject.metric}
+              </span>
+            </div>
+            <p className="text-gray-300 text-lg max-w-2xl leading-relaxed mb-6">{featuredProject.fullDesc}</p>
+            <div className="flex flex-wrap gap-2 mb-6">
+              {featuredProject.tech.map(t => <span key={t} className="tag-cyan">{t}</span>)}
+            </div>
+            <div className="flex gap-4">
+              <a href={featuredProject.github} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-colors">
+                <Github size={16} /> View Code
+              </a>
+              <a href={featuredProject.demo} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm" style={{ color: 'var(--cyan)' }}>
+                <ExternalLink size={16} /> Live Demo
+              </a>
+            </div>
+          </div>
+        </motion.div>
+      </section>
+
       {/* ══════════ HEADER ══════════ */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -147,7 +198,7 @@ export default function ProjectsPage() {
           </p>
         </motion.div>
 
-        {/* Category Filters */}
+        {/* Category Filters with count badges */}
         <motion.div
           className="flex flex-wrap gap-2 justify-center mt-10"
           initial={{ opacity: 0 }}
@@ -158,7 +209,7 @@ export default function ProjectsPage() {
             <motion.button
               key={cat}
               onClick={() => setSelected(cat)}
-              className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all ${selected === cat
+              className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all flex items-center gap-2 ${selected === cat
                 ? 'text-black'
                 : 'glass text-gray-400 hover:text-white border border-white/10'
                 }`}
@@ -171,6 +222,15 @@ export default function ProjectsPage() {
               whileTap={{ scale: 0.96 }}
             >
               {cat}
+              <span
+                className="text-xs px-1.5 py-0.5 rounded-full"
+                style={selected === cat
+                  ? { background: 'rgba(0,0,0,0.2)', color: '#000' }
+                  : { background: 'rgba(255,255,255,0.08)', color: 'rgba(255,255,255,0.4)' }
+                }
+              >
+                {getCategoryCount(cat)}
+              </span>
             </motion.button>
           ))}
         </motion.div>
@@ -181,25 +241,27 @@ export default function ProjectsPage() {
         <motion.div
           className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
           layout
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.08 } } }}
         >
-          {filtered.map((project, i) => (
+          {filtered.map((project) => (
             <motion.div
               key={project.id}
               layout
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
+              variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5 } } }}
               exit={{ opacity: 0, y: -20 }}
-              transition={{ delay: i * 0.08, duration: 0.5 }}
               className={`glass rounded-2xl border border-white/08 overflow-hidden group hover:border-white/20 transition-all duration-300 tilt-card flex flex-col ${project.featured ? 'ring-1 ring-cyan-500/20' : ''
                 }`}
             >
-              {/* Card header */}
+              {/* Card header with gradient mesh */}
               <div
                 className="p-6 pb-4"
                 style={{
                   background: project.featured
-                    ? 'linear-gradient(135deg, rgba(0,212,255,0.05), rgba(139,92,246,0.05))'
-                    : 'transparent',
+                    ? 'linear-gradient(135deg, rgba(0,212,255,0.07) 0%, rgba(139,92,246,0.07) 50%, rgba(0,255,136,0.04) 100%)'
+                    : `linear-gradient(135deg, ${project.metricColor}08 0%, transparent 60%)`,
                 }}
               >
                 <div className="flex items-start justify-between mb-4">
