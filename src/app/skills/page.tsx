@@ -231,6 +231,7 @@ export default function SkillsPage() {
                           whileInView={{ opacity: 1, scale: 1 }}
                           viewport={{ once: true }}
                           transition={{ delay: si * 0.05 }}
+                          whileHover={{ rotateY: 5 }}
                         >
                           <div className="flex items-center justify-between mb-3">
                             <div className="flex items-center gap-2">
@@ -268,6 +269,46 @@ export default function SkillsPage() {
           </section>
         </>
       )}
+
+      {/* ══════════ CURRENTLY LEARNING ══════════ */}
+      <section className="py-16" style={{ background: 'linear-gradient(180deg, transparent, rgba(184,41,221,0.025) 50%, transparent)' }}>
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            className="text-center mb-10"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-3xl font-bold text-white mb-2">Currently <span className="gradient-text">Learning</span></h2>
+            <p className="text-gray-400 text-sm">Active exploration — always leveling up</p>
+          </motion.div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {[
+              { name: 'PyTorch Deep Learning', emoji: '🔥', color: 'var(--pink)' },
+              { name: 'LLM Fine-tuning', emoji: '🧠', color: 'var(--purple)' },
+              { name: 'MLOps with Kubernetes', emoji: '☸️', color: 'var(--cyan)' },
+              { name: 'Apache Spark', emoji: '⚡', color: 'var(--gold)' },
+            ].map((item, i) => (
+              <motion.div
+                key={item.name}
+                className="glass rounded-xl border border-white/08 p-5 flex items-center gap-3"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                whileHover={{ scale: 1.03 }}
+              >
+                <div
+                  className="w-2.5 h-2.5 rounded-full flex-shrink-0 animate-pulse"
+                  style={{ background: item.color, boxShadow: `0 0 8px ${item.color}` }}
+                />
+                <span className="text-sm text-gray-300 font-medium">{item.name}</span>
+                <span className="ml-auto text-lg">{item.emoji}</span>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* ══════════ TOOLKIT SHOWCASE ══════════ */}
       <section className="py-20" style={{ background: 'linear-gradient(180deg, transparent, rgba(0,212,255,0.025) 50%, transparent)' }}>

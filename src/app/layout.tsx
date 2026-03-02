@@ -1,9 +1,7 @@
 import type { Metadata } from 'next'
 import { ReactNode } from 'react'
 import './globals.css'
-import Navbar from '@/components/Navbar'
-import Footer from '@/components/Footer'
-import Chatbot from '@/components/Chatbot'
+import ClientLayout from '@/components/ClientLayout'
 
 export const metadata: Metadata = {
   title: 'Rohit Bedse | Data Science Portfolio',
@@ -32,10 +30,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         />
       </head>
       <body style={{ background: 'var(--dark)', color: 'var(--text-primary)' }}>
-        <Navbar />
-        <main>{children}</main>
-        <Footer />
-        <Chatbot />
+        <ClientLayout>{children}</ClientLayout>
       </body>
     </html>
   )

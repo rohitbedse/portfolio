@@ -1,6 +1,7 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { motion, useScroll, useTransform } from 'framer-motion'
+import { useRef } from 'react'
 import { GraduationCap, Briefcase, Heart, MapPin, Coffee, BookOpen, Award, Target } from 'lucide-react'
 
 const containerVariants = {
@@ -83,6 +84,9 @@ const values = [
 ]
 
 export default function AboutPage() {
+  const avatarRef = useRef<HTMLDivElement>(null)
+  const { scrollYProgress } = useScroll({ target: avatarRef, offset: ['start end', 'end start'] })
+  const avatarY = useTransform(scrollYProgress, [0, 1], [-20, 20])
   return (
     <div
       className="min-h-screen pt-20"
@@ -136,16 +140,21 @@ export default function AboutPage() {
             </motion.div>
           </div>
 
-          {/* Right — 3D Avatar Card */}
+          {/* Right — 3D Avatar Card with parallax */}
           <motion.div
+            ref={avatarRef}
             variants={itemVariants}
             className="flex justify-center"
           >
             <motion.div
               className="relative"
-              animate={{ y: [0, -12, 0] }}
-              transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
+              style={{ y: avatarY }}
             >
+              <motion.div
+                className="relative"
+                animate={{ y: [0, -12, 0] }}
+                transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
+              >
               {/* 3D glowing card */}
               <div
                 className="glass rounded-3xl border border-white/12 p-10 text-center relative overflow-hidden"
@@ -223,6 +232,7 @@ export default function AboutPage() {
                 🤖
               </motion.div>
             </motion.div>
+            </motion.div>
           </motion.div>
         </motion.div>
       </section>
@@ -255,8 +265,9 @@ export default function AboutPage() {
             {values.map((v) => (
               <motion.div
                 key={v.title}
-                className="glass rounded-2xl border border-white/08 p-6 tilt-card group hover:border-white/20 transition-all"
+                className="glass rounded-2xl border border-white/08 p-6 tilt-card group transition-all"
                 variants={itemVariants}
+                whileHover={{ borderColor: `${v.color}60`, boxShadow: `0 0 20px ${v.color}20` }}
               >
                 <div
                   className="w-12 h-12 rounded-xl mb-4 flex items-center justify-center"
@@ -303,7 +314,7 @@ export default function AboutPage() {
                 <motion.div
                   key={i}
                   className="flex gap-6 relative pl-20"
-                  initial={{ opacity: 0, x: -30 }}
+                  initial={{ opacity: 0, x: i % 2 === 0 ? -30 : 30 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.1, duration: 0.6 }}
