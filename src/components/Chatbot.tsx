@@ -5,15 +5,15 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { MessageCircle, X, Send, Bot, User } from 'lucide-react'
 
 const qa: Record<string, string> = {
-    skills: "Rohit is proficient in Python (90%), SQL (85%), Scikit-learn (85%), Pandas (92%), and XGBoost. He also works with Tableau, Streamlit, and basic AWS/SageMaker.",
-    projects: "Rohit has built: Customer Churn Prediction (94.7% accuracy), Sales Forecasting with ARIMA, Customer Segmentation with K-Means RFM, Netflix EDA Dashboard, A/B Testing Framework, and House Price Regression (top 18% Kaggle).",
-    experience: "Rohit is an entry-level Data Scientist seeking opportunities. He has hands-on project experience in the full ML lifecycle — from EDA to model deployment.",
-    contact: "You can reach Rohit via the Contact page or connect on LinkedIn and GitHub. He is open to internships and entry-level roles.",
+    skills: "Rohit is proficient in Python, SQL, Scikit-learn, Pandas, LangChain, TensorFlow, and NLP. He also works with Tableau, Streamlit, Plotly, and Flask for building data applications.",
+    projects: "Rohit has built: YouTube Comment Analysis (NLP Major Project), Swiggy Delivery Time Prediction (ML Pipeline), LangChain Projects (GenAI/RAG), Movie Recommendation (TF-IDF), Chat with PDF, Flights Dashboard, Customer Churn Prediction, House Price Prediction, Placement Prediction, and more — 30+ repos on GitHub.",
+    experience: "Rohit is a Data Scientist seeking opportunities. He has hands-on project experience in ML pipelines, NLP systems, LLM applications, and data visualization dashboards.",
+    contact: "You can reach Rohit via the Contact page or connect on LinkedIn (linkedin.com/in/rohitbedse) and GitHub (github.com/rohitbedse).",
     education: "Rohit has completed coursework in Data Science, Statistics, and Machine Learning, with practical experience through real-world projects.",
-    ml: "Rohit's ML stack includes Linear/Logistic Regression, Random Forests, XGBoost, K-Means clustering, ARIMA for time series, and basic Neural Networks.",
-    python: "Yes! Python is Rohit's primary language (90% proficiency). He uses it daily for data wrangling, ML modeling, and visualization.",
-    sql: "Rohit is proficient in SQL (85%) — writing complex queries, window functions, CTEs, and using it for analytical reporting.",
-    hire: "Absolutely! Rohit is actively job-seeking. Head to the Contact page to get in touch for internships or entry-level DS roles.",
+    ml: "Rohit's ML stack includes Scikit-learn, XGBoost, TensorFlow, PyTorch, and LangChain for GenAI. He builds end-to-end ML pipelines from data to deployment.",
+    python: "Yes! Python is Rohit's primary language. He uses it daily for ML modeling, NLP, data wrangling, and building web applications with Flask and Streamlit.",
+    sql: "Rohit is proficient in SQL — writing complex queries, window functions, CTEs, and using it for analytical reporting and dashboard backends.",
+    hire: "Absolutely! Rohit is actively job-seeking. Head to the Contact page to get in touch for opportunities in Data Science and ML Engineering.",
 }
 
 function getReply(msg: string): string {

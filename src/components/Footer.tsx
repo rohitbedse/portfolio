@@ -15,8 +15,8 @@ const navLinks = [
 ]
 
 const socialLinks = [
-  { icon: <Github size={18} />, href: 'https://github.com', id: 'footer-github', color: 'var(--cyan)', label: 'GitHub' },
-  { icon: <Linkedin size={18} />, href: 'https://linkedin.com', id: 'footer-linkedin', color: 'var(--purple)', label: 'LinkedIn' },
+  { icon: <Github size={18} />, href: 'https://github.com/rohitbedse', id: 'footer-github', color: 'var(--cyan)', label: 'GitHub' },
+  { icon: <Linkedin size={18} />, href: 'https://linkedin.com/in/rohitbedse', id: 'footer-linkedin', color: 'var(--purple)', label: 'LinkedIn' },
   { icon: <Mail size={18} />, href: 'mailto:rohit.bedse@gmail.com', id: 'footer-email', color: 'var(--pink)', label: 'Email' },
 ]
 
@@ -152,7 +152,7 @@ export default function Footer() {
           <div>
             <h4 className="text-white font-semibold mb-4 text-sm uppercase tracking-wider">Tech Stack</h4>
             <div className="flex flex-wrap gap-1.5">
-              {['Python', 'SQL', 'Pandas', 'Scikit-learn', 'XGBoost', 'Plotly', 'Streamlit', 'PyTorch'].map((t) => (
+              {['Python', 'SQL', 'Pandas', 'Scikit-learn', 'LangChain', 'Plotly', 'Streamlit', 'PyTorch'].map((t) => (
                 <span key={t} className="tag-cyan">{t}</span>
               ))}
             </div>

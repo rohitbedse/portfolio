@@ -55,7 +55,7 @@ export default function Navbar() {
               >
                 <BarChart2 size={16} color="#000" strokeWidth={2.5} />
               </div>
-              <span className="font-bold text-lg mono gradient-text-animated">
+              <span className="font-bold text-lg mono gradient-text-animated font-display">
                 RB<span style={{ color: '#a78bfa' }}>.ds</span>
               </span>
             </motion.div>

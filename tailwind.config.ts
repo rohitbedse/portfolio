@@ -27,8 +27,8 @@ const config: Config = {
         'dark-bg': '#04060f',
       },
       fontFamily: {
-        sans: ['Space Grotesk', 'Inter', 'system-ui', 'sans-serif'],
-        display: ['Space Grotesk', 'system-ui', 'sans-serif'],
+        sans: ['Outfit', 'Space Grotesk', 'Inter', 'system-ui', 'sans-serif'],
+        display: ['Syne', 'Outfit', 'system-ui', 'sans-serif'],
         mono: ['JetBrains Mono', 'Monaco', 'Consolas', 'monospace'],
       },
       animation: {

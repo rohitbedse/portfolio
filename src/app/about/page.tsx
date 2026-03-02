@@ -114,7 +114,7 @@ export default function AboutPage() {
             >
               <span className="text-white">Data Scientist</span>
               <br />
-              <span className="gradient-text">in the Making</span>
+              <span className="liquid-gradient">&amp; ML Engineer</span>
             </motion.h1>
 
             <motion.p variants={itemVariants} className="text-gray-400 text-lg leading-relaxed mb-6">
