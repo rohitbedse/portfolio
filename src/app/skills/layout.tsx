@@ -1,32 +1,26 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Technical Skills — Python, ML, SQL, Data Visualization & More',
+  title: 'Technical Skills — GenAI, LangChain, Python, ML, NLP & More',
   description:
-    'Rohit Bedse\'s technical skill set across 36+ tools: Python, Pandas, Scikit-learn, XGBoost, SQL, Tableau, Power BI, Streamlit, TensorFlow, and more. View proficiency levels in programming, ML, statistics, visualization, and cloud deployment.',
+    'Rohit Bedse\'s technical skill set across 36+ tools: RAG Systems, LangChain, LangGraph, FAISS, Gemini API, Python, Scikit-learn, TF-IDF, Word2Vec, BERT, Streamlit, MLflow. View proficiency levels in GenAI, ML, NLP, and deployment.',
   keywords: [
-    'Data Science Skills',
+    'AI ML Skills',
+    'LangChain Developer',
+    'RAG Systems',
     'Python Developer',
     'Machine Learning Skills',
-    'SQL Expert',
-    'Pandas',
-    'Scikit-learn',
-    'XGBoost',
-    'Tableau',
-    'Power BI',
-    'Data Visualization',
-    'Technical Skills Portfolio',
+    'NLP Skills',
+    'GenAI Skills',
+    'FAISS',
+    'LangGraph',
+    'Prompt Engineering',
   ],
   openGraph: {
     title: 'Technical Skills — Rohit Bedse',
     description:
-      '36+ tools across Python, ML, SQL, data viz, and cloud. Interactive skill constellation and detailed proficiency grid.',
+      '36+ tools across GenAI, ML, NLP, and deployment. Interactive skill constellation and detailed proficiency grid.',
     url: 'https://rohitbedse.vercel.app/skills',
-  },
-  twitter: {
-    title: 'Technical Skills — Rohit Bedse',
-    description:
-      'Explore proficiency levels across Python, ML, SQL, data visualization, and cloud deployment tools.',
   },
   alternates: {
     canonical: 'https://rohitbedse.vercel.app/skills',

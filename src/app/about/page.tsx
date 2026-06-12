@@ -18,66 +18,66 @@ const itemVariants = {
 
 const timeline = [
   {
-    year: '2024',
-    title: 'Data Science Bootcamp — Internship',
-    org: 'Analytix Solutions',
-    desc: 'Completed an intensive 6-month program covering ML pipelines, EDA, and SQL analytics. Deployed a churn prediction model for a retail client.',
-    icon: <Briefcase size={18} />,
+    year: '2026',
+    title: 'Multi-Agent Research System — GenAI Project',
+    org: 'Self-Directed',
+    desc: 'Built a multi-agent LLM system using LangGraph to automate end-to-end research workflows with 4 coordinated agents (Search, Reader, Writer, Critic) and iterative quality control.',
+    icon: <Award size={18} />,
     color: 'var(--cyan)',
-    tags: ['Python', 'ML', 'SQL', 'Deployment'],
+    tags: ['LangGraph', 'LLM', 'Streamlit', 'Tavily API'],
   },
   {
-    year: '2023',
-    title: 'B.Sc. Computer Science with Data Analytics',
-    org: 'University of Pune',
-    desc: 'Final year project: Built a sentiment analysis system for product reviews using NLP techniques and achieved 89% classification accuracy.',
-    icon: <GraduationCap size={18} />,
+    year: '2026',
+    title: 'AI/ML Trainee — Edunet Foundation',
+    org: 'AICTE & IBM SkillsBuild Program',
+    desc: 'Developed regression and classification models, designed end-to-end ML workflows including preprocessing, feature engineering, and evaluation. Explored neural network fundamentals.',
+    icon: <Briefcase size={18} />,
     color: 'var(--purple)',
-    tags: ['NLP', 'NLTK', 'Thesis', 'Research'],
+    tags: ['ML Workflows', 'Neural Networks', 'IBM', 'AICTE'],
+  },
+  {
+    year: '2025',
+    title: 'Chat with PDF — RAG System',
+    org: 'Self-Directed Project',
+    desc: 'Built a RAG-based document intelligence system using LangChain, FAISS, and Google Gemini for context-aware Q&A over PDFs with a Streamlit interface.',
+    icon: <Target size={18} />,
+    color: 'var(--green)',
+    tags: ['LangChain', 'FAISS', 'Gemini', 'RAG'],
   },
   {
     year: '2022',
-    title: 'Machine Learning Specialization',
-    org: 'Coursera · Andrew Ng',
-    desc: 'Completed 3-course specialization covering supervised, unsupervised, and reinforcement learning fundamentals.',
-    icon: <Award size={18} />,
-    color: 'var(--green)',
-    tags: ['TensorFlow', 'Neural Nets', 'Certificate'],
-  },
-  {
-    year: '2021',
-    title: 'Started the Data Science Journey',
-    org: 'Self-Directed Learning',
-    desc: 'Discovered Python and Kaggle competitions. Completed 50+ datasets exploration challenges. Fell in love with data storytelling.',
-    icon: <Target size={18} />,
+    title: 'B.Tech Computer Science — Started',
+    org: 'SSVPS B.S Deore College of Engineering, Dhule',
+    desc: 'Began undergraduate program in Computer Science. Building foundation in programming, data structures, algorithms, and mathematics for AI/ML.',
+    icon: <GraduationCap size={18} />,
     color: 'var(--pink)',
-    tags: ['Python', 'Kaggle', 'Pandas', 'Basics'],
+    tags: ['CS Fundamentals', 'Python', 'DSA', 'Mathematics'],
   },
 ]
 
 const values = [
   {
     icon: <BookOpen size={22} />,
-    title: 'Curious by Nature',
-    desc: 'Every dataset has a story. I dig until I find the plot twist.',
+    title: 'Builder Mindset',
+    desc: 'I don\'t just learn concepts — I build end-to-end systems that work in the real world.',
     color: 'var(--cyan)',
   },
   {
     icon: <Coffee size={22} />,
-    title: 'Builder Mindset',
-    desc: 'I don\'t just analyze data — I build tools that make data useful.',
+    title: 'GenAI Obsessed',
+    desc: 'Deeply passionate about LLMs, RAG systems, and multi-agent architectures.',
     color: 'var(--purple)',
   },
   {
     icon: <Heart size={22} />,
-    title: 'Human-Centered',
-    desc: 'Models that make real impact for real people. That\'s the goal.',
+    title: 'Problem Solver',
+    desc: 'Every project starts with a real problem. Technology is just the tool to solve it.',
     color: 'var(--pink)',
   },
   {
     icon: <Target size={22} />,
-    title: 'Impact-Driven',
-    desc: 'I measure success not by model accuracy, but by business outcomes.',
+    title: 'Ship Fast, Iterate',
+    desc: 'I believe in deploying early, gathering feedback, and continuously improving.',
     color: 'var(--green)',
   },
 ]
@@ -108,21 +108,22 @@ export default function AboutPage() {
               variants={itemVariants}
               className="hero-title text-5xl md:text-6xl mb-6"
             >
-              <span className="text-white">Data Scientist</span>
+              <span className="text-white">AI/ML Engineer</span>
               <br />
-              <span className="gradient-text">in the Making</span>
+              <span className="gradient-text">& GenAI Developer</span>
             </motion.h1>
 
             <motion.p variants={itemVariants} className="text-gray-400 text-lg leading-relaxed mb-6">
               Hey there! I&apos;m <strong style={{ color: 'var(--cyan)' }}>Rohit Bedse</strong>,
-              an entry-level Data Scientist from Pune, India. My passion lies at the intersection
-              of statistics, code, and business impact.
+              a Computer Science undergraduate specializing in Generative AI systems. I build
+              RAG-based and multi-agent LLM applications that solve real-world information
+              retrieval and automation problems.
             </motion.p>
 
             <motion.p variants={itemVariants} className="text-gray-400 leading-relaxed mb-8">
-              I started with Excel formulas and curiosity. Today I build end-to-end ML pipelines,
-              craft insightful dashboards, and communicate data stories clearly to non-technical
-              stakeholders. I believe the best data scientist is also a great communicator.
+              My focus is on designing end-to-end AI systems involving orchestration with LangGraph,
+              semantic search with vector databases, and user-facing applications deployed via Streamlit.
+              I have a strong foundation in machine learning, NLP, and scalable deployment.
             </motion.p>
 
             <motion.div variants={itemVariants} className="flex items-center gap-2 text-gray-400 mb-2">
@@ -132,7 +133,7 @@ export default function AboutPage() {
 
             <motion.div variants={itemVariants} className="flex items-center gap-2 text-gray-400">
               <span style={{ color: 'var(--green)' }}>●</span>
-              <span>Open to remote / hybrid opportunities</span>
+              <span>Open to AI/ML roles & internships (remote / hybrid)</span>
             </motion.div>
           </div>
 
@@ -177,15 +178,15 @@ export default function AboutPage() {
 
                 <h3 className="text-xl font-bold text-white mb-1">Rohit Bedse</h3>
                 <p className="text-sm mono mb-6" style={{ color: 'var(--cyan)' }}>
-                  Data Scientist · ML Engineer
+                  AI/ML Engineer · GenAI Developer
                 </p>
 
                 <div className="space-y-3 text-left">
                   {[
                     { label: 'Python', pct: 90, color: 'var(--cyan)' },
-                    { label: 'Machine Learning', pct: 80, color: 'var(--purple)' },
-                    { label: 'SQL', pct: 85, color: 'var(--green)' },
-                    { label: 'Data Viz', pct: 88, color: 'var(--pink)' },
+                    { label: 'GenAI / LLMs', pct: 85, color: 'var(--purple)' },
+                    { label: 'Machine Learning', pct: 82, color: 'var(--green)' },
+                    { label: 'NLP', pct: 80, color: 'var(--pink)' },
                   ].map((s) => (
                     <div key={s.label}>
                       <div className="flex justify-between text-xs mb-1">
@@ -213,14 +214,14 @@ export default function AboutPage() {
                 transition={{ duration: 8, repeat: Infinity, ease: 'linear' }}
                 style={{ transformOrigin: 'center center' }}
               >
-                📊
+                🤖
               </motion.div>
               <motion.div
                 className="absolute -bottom-2 -left-3 glass rounded-full w-12 h-12 flex items-center justify-center text-xl border border-white/15"
                 animate={{ rotate: -360 }}
                 transition={{ duration: 10, repeat: Infinity, ease: 'linear' }}
               >
-                🤖
+                🧠
               </motion.div>
             </motion.div>
           </motion.div>
@@ -357,7 +358,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ══════════ FUN FACTS ══════════ */}
+      {/* ══════════ EDUCATION & CERTIFICATIONS ══════════ */}
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -367,28 +368,46 @@ export default function AboutPage() {
             viewport={{ once: true }}
           >
             <h2 className="text-3xl font-bold text-white mb-8 text-center">
-              Fun Facts <span className="gradient-text">About Me</span>
+              Education & <span className="gradient-text">Certifications</span>
             </h2>
-            <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
-              {[
-                { emoji: '☕', fact: '3 cups of chai to debug 1 model', color: 'var(--gold)' },
-                { emoji: '🏆', fact: 'Top 15% in my first Kaggle competition', color: 'var(--cyan)' },
-                { emoji: '📚', fact: 'Read 2 ML papers every weekend', color: 'var(--purple)' },
-                { emoji: '🌍', fact: 'Speak: English, Hindi, Marathi', color: 'var(--green)' },
-                { emoji: '🧮', fact: 'Still do mental math before using numpy', color: 'var(--pink)' },
-                { emoji: '🎯', fact: 'Goal: publish an applied ML research paper', color: 'var(--cyan)' },
-              ].map((f) => (
-                <motion.div
-                  key={f.fact}
-                  className="flex items-start gap-3 group cursor-default"
-                  whileHover={{ x: 4 }}
-                >
-                  <span className="text-2xl">{f.emoji}</span>
-                  <p className="text-gray-400 text-sm leading-relaxed" style={{ color: 'rgba(200,200,200,0.7)' }}>
-                    {f.fact}
-                  </p>
-                </motion.div>
-              ))}
+            <div className="grid sm:grid-cols-2 gap-8">
+              {/* Education */}
+              <div>
+                <h3 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
+                  <GraduationCap size={20} style={{ color: 'var(--cyan)' }} /> Education
+                </h3>
+                <div className="glass rounded-xl border border-white/08 p-5">
+                  <p className="font-bold text-white">B.Tech — Computer Science</p>
+                  <p className="text-sm text-gray-400">SSVPS B.S Deore College of Engineering, Dhule</p>
+                  <p className="text-xs mono mt-2" style={{ color: 'var(--cyan)' }}>Nov 2022 — June 2026</p>
+                </div>
+              </div>
+              {/* Certifications */}
+              <div>
+                <h3 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
+                  <Award size={20} style={{ color: 'var(--purple)' }} /> Certifications
+                </h3>
+                <div className="space-y-3">
+                  {[
+                    { name: 'Artificial Intelligence Fundamentals', org: 'IBM, 2026', color: 'var(--cyan)' },
+                    { name: 'AWS Educate: Introduction to Generative AI', org: 'AWS, 2026', color: 'var(--green)' },
+                    { name: 'Machine Learning and Deep Learning', org: 'IBM, 2026', color: 'var(--purple)' },
+                    { name: 'GenAI Buildathon', org: 'NxtWave, 2025', color: 'var(--pink)' },
+                  ].map((cert) => (
+                    <motion.div
+                      key={cert.name}
+                      className="flex items-start gap-3 group cursor-default"
+                      whileHover={{ x: 4 }}
+                    >
+                      <span style={{ color: cert.color }}>●</span>
+                      <div>
+                        <p className="text-sm text-white">{cert.name}</p>
+                        <p className="text-xs text-gray-500">{cert.org}</p>
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
             </div>
           </motion.div>
         </div>

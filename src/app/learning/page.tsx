@@ -24,7 +24,7 @@ const roadmap = [
     status: 'completed' as const,
     title: 'SQL & Exploratory Analysis',
     description: 'SQL mastery for data retrieval and transformation, and EDA workflows.',
-    topics: ['SQL Joins & CTEs', 'Window Functions', 'EDA Frameworks', 'Data Cleaning', 'Seaborn Viz', 'Outlier Detection'],
+    topics: ['SQL Joins & CTEs', 'Correlation Analysis', 'EDA Frameworks', 'Data Cleaning', 'Seaborn Viz', 'Hypothesis Testing'],
     progress: 100,
     color: 'var(--green)',
     emoji: '✅',
@@ -32,50 +32,50 @@ const roadmap = [
   {
     phase: 'Phase 3 · Machine Learning',
     status: 'completed' as const,
-    title: 'Supervised Learning Mastery',
-    description: 'Classical ML algorithms from regression to boosting with real project application.',
-    topics: ['Linear & Logistic Regression', 'Decision Trees', 'Random Forest', 'XGBoost/LightGBM', 'Cross-Validation', 'Hyperparameter Tuning'],
+    title: 'Supervised & Unsupervised Learning',
+    description: 'Classical ML algorithms from regression to ensemble methods with real project application.',
+    topics: ['Linear & Logistic Regression', 'Random Forest', 'Gradient Boosting', 'Cross-Validation', 'Hyperparameter Tuning', 'Model Evaluation'],
     progress: 100,
     color: 'var(--green)',
     emoji: '✅',
   },
   {
-    phase: 'Phase 4 · In Progress',
+    phase: 'Phase 4 · NLP',
+    status: 'completed' as const,
+    title: 'NLP & Word Embeddings',
+    description: 'Text processing, feature extraction, and word embedding techniques.',
+    topics: ['Text Cleaning', 'TF-IDF / BoW', 'N-grams', 'Word2Vec / GloVe', 'Sentence Transformers', 'BERT Basics'],
+    progress: 100,
+    color: 'var(--green)',
+    emoji: '✅',
+  },
+  {
+    phase: 'Phase 5 · Active',
     status: 'in-progress' as const,
-    title: 'Deep Learning & NLP Basics',
-    description: 'Neural networks, backpropagation, and text processing fundamentals.',
-    topics: ['ANN Architecture', 'PyTorch Basics', 'CNN Intro', 'NLP Preprocessing', 'Embeddings', 'Transformers (Intro)'],
-    progress: 55,
+    title: 'Generative AI & LLM Systems',
+    description: 'RAG pipelines, multi-agent orchestration, and LLM application development.',
+    topics: ['LangChain', 'LangGraph', 'FAISS / Vector DBs', 'Gemini API', 'Prompt Engineering', 'Multi-Agent Systems'],
+    progress: 85,
     color: 'var(--cyan)',
     emoji: '🔄',
   },
   {
-    phase: 'Phase 5 · Next Up',
+    phase: 'Phase 6 · Next Up',
     status: 'upcoming' as const,
-    title: 'MLOps & Deployment',
-    description: 'Taking models to production — FastAPI, Docker, monitoring, and CI/CD.',
-    topics: ['FastAPI Model Serving', 'Docker Containers', 'MLflow Tracking', 'AWS SageMaker', 'Model Monitoring', 'CI/CD Pipelines'],
-    progress: 0,
+    title: 'Advanced Deployment & MLOps',
+    description: 'Production-grade systems — Docker, cloud deployment, monitoring, and CI/CD.',
+    topics: ['Docker Containers', 'AWS / Cloud', 'CI/CD Pipelines', 'Model Monitoring', 'API Design', 'Scalable Architecture'],
+    progress: 15,
     color: 'var(--purple)',
     emoji: '🔮',
-  },
-  {
-    phase: 'Phase 6 · Future',
-    status: 'upcoming' as const,
-    title: 'Generative AI & LLMs',
-    description: 'RAG systems, fine-tuning, and building AI-powered data science tools.',
-    topics: ['LangChain', 'RAG Pipelines', 'Prompt Engineering', 'Vector DBs', 'Fine-tuning', 'LLM Evaluation'],
-    progress: 0,
-    color: 'var(--pink)',
-    emoji: '🚀',
   },
 ]
 
 const stats = [
-  { label: 'Phases Completed', value: '3', color: 'var(--green)' },
+  { label: 'Phases Completed', value: '4', color: 'var(--green)' },
   { label: 'Currently Active', value: '1', color: 'var(--cyan)' },
-  { label: 'Upcoming Phases', value: '2', color: 'var(--purple)' },
-  { label: 'Total Progress', value: '62%', color: 'var(--pink)' },
+  { label: 'Upcoming Phases', value: '1', color: 'var(--purple)' },
+  { label: 'Total Progress', value: '83%', color: 'var(--pink)' },
 ]
 
 const principles = [
@@ -87,20 +87,20 @@ const principles = [
   },
   {
     icon: <BookOpen size={20} />,
-    title: 'Understand the Math',
-    desc: 'No black boxes. I derive and understand the math behind every algorithm I use.',
+    title: 'Understand the Architecture',
+    desc: 'No black boxes. I trace every LLM call, every vector search, every agent decision.',
     color: 'var(--purple)',
   },
   {
     icon: <Lightbulb size={20} />,
-    title: 'Write, Teach, Share',
-    desc: 'Writing and teaching solidify understanding. I document everything I learn on my blog.',
+    title: 'Ship Real Systems',
+    desc: 'I deploy everything — from Streamlit apps to multi-agent research systems.',
     color: 'var(--gold)',
   },
   {
     icon: <ArrowRight size={20} />,
-    title: 'Production Mindset',
-    desc: 'I learn not just to understand, but to deploy systems that work in the real world.',
+    title: 'Solve Real Problems',
+    desc: 'I build AI tools that solve actual information retrieval and automation challenges.',
     color: 'var(--green)',
   },
 ]
@@ -120,12 +120,12 @@ export default function LearningPage() {
             <span>🗺️</span> Learning Roadmap
           </span>
           <h1 className="hero-title text-5xl md:text-6xl mb-5">
-            <span className="text-white">My DS </span>
+            <span className="text-white">My AI/ML </span>
             <span className="gradient-text">Learning Path</span>
           </h1>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            A structured, transparent view of my data science journey — what I&apos;ve mastered,
-            what I&apos;m currently learning, and where I&apos;m heading next.
+            A structured, transparent view of my AI/ML journey — what I&apos;ve mastered,
+            what I&apos;m currently building, and where I&apos;m heading next.
           </p>
         </motion.div>
 
@@ -363,12 +363,12 @@ export default function LearningPage() {
             variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.07 } } }}
           >
             {[
-              { name: 'Hands-On ML (Aurélien Géron)', type: 'Book', emoji: '📚', color: 'var(--cyan)' },
-              { name: 'StatQuest with Josh Starmer', type: 'YouTube', emoji: '📺', color: 'var(--purple)' },
-              { name: 'Kaggle Learn', type: 'Platform', emoji: '🏆', color: 'var(--gold)' },
+              { name: 'LangChain Documentation', type: 'Docs', emoji: '🔗', color: 'var(--cyan)' },
               { name: 'Andrew Ng ML Specialization', type: 'Course', emoji: '🎓', color: 'var(--pink)' },
-              { name: 'Towards Data Science', type: 'Blog', emoji: '✍️', color: 'var(--green)' },
-              { name: 'FastAI Practical DL Course', type: 'Course', emoji: '⚡', color: 'var(--cyan)' },
+              { name: 'Hands-On ML (Aurélien Géron)', type: 'Book', emoji: '📚', color: 'var(--purple)' },
+              { name: 'IBM SkillsBuild AI', type: 'Program', emoji: '🏢', color: 'var(--green)' },
+              { name: 'Kaggle Competitions', type: 'Platform', emoji: '🏆', color: 'var(--gold)' },
+              { name: 'StatQuest with Josh Starmer', type: 'YouTube', emoji: '📺', color: 'var(--cyan)' },
             ].map((r) => (
               <motion.div
                 key={r.name}

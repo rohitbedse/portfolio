@@ -38,7 +38,7 @@ export default function HomePage() {
           transition={{ duration: 1, delay: 0.2 }}
         >
           <div className="w-2 h-2 rounded-full bg-[#00ff88] animate-pulse" />
-          <span className="font-mono text-[10px] uppercase tracking-widest text-[#888]">Available for Entry-Level & Internships</span>
+          <span className="font-mono text-[10px] uppercase tracking-widest text-[#888]">Available for AI/ML Roles & Internships</span>
         </motion.div>
 
         <motion.div
@@ -62,7 +62,7 @@ export default function HomePage() {
             <div className="max-w-xs text-right">
               <p className="font-mono text-xs uppercase tracking-[0.2em] text-[#666] mb-2">Role</p>
               <h2 className="text-xl sm:text-2xl font-light tracking-tight text-[#ccc]">
-                Data Scientist &<br />Machine Learning Eng.
+                AI/ML Engineer &<br />Generative AI Developer
               </h2>
             </div>
           </motion.div>
@@ -74,9 +74,10 @@ export default function HomePage() {
             transition={{ duration: 1, delay: 0.4 }}
           >
             <p className="max-w-md text-sm sm:text-base text-[#888] font-light leading-relaxed">
-              Transforming raw datasets into predictive insights.
-              Specializing in full-cycle data engineering, statistical modeling,
-              and precise data narrative. Designed for the future of intelligence.
+              Building RAG-based and multi-agent LLM applications that solve
+              real-world information retrieval and automation problems.
+              Specializing in end-to-end AI systems with LangGraph, semantic search,
+              and scalable deployment.
             </p>
 
             <div className="flex gap-6 items-center">
@@ -92,15 +93,15 @@ export default function HomePage() {
         </motion.div>
       </section>
 
-      {/* ══════════ METRICS TAPE (2030 stark numbers) ══════════ */}
+      {/* ══════════ METRICS TAPE ══════════ */}
       <section className="border-y border-[#1a1a1a] bg-[#050508] relative z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-16 py-12">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4 divide-x divide-[#1a1a1a]">
             {[
-              { label: 'Live Model Accuracy', val: '94.7%', accent: 'text-[#00ff88]' },
-              { label: 'Analyzed Datasets', val: '50+', accent: 'text-white' },
-              { label: 'Deployed Projects', val: '12+', accent: 'text-white' },
-              { label: 'ML Algorithms', val: '30+', accent: 'text-white' },
+              { label: 'AI/ML Projects Built', val: '5+', accent: 'text-[#00ff88]' },
+              { label: 'GenAI Systems Deployed', val: '3+', accent: 'text-white' },
+              { label: 'LLM Agents Orchestrated', val: '4+', accent: 'text-white' },
+              { label: 'Certifications', val: '4', accent: 'text-white' },
             ].map((stat, i) => (
               <div key={i} className={`pl-8 ${i === 0 ? 'pl-0' : ''}`}>
                 <p className="font-mono text-[10px] uppercase tracking-widest text-[#555] mb-2">{stat.label}</p>
@@ -120,9 +121,9 @@ export default function HomePage() {
 
           <div className="border-t border-[#222]">
             {[
-              { num: '01', title: 'Exploratory Analysis', desc: 'Deep statistical dives surfacing hidden paradigms and anomalies. Visual narratives built on hard data.', tools: 'Pandas / Seaborn / SQL' },
-              { num: '02', title: 'Machine Learning', desc: 'Predictive modeling from baseline inference to extreme gradient boosting. Built to scale.', tools: 'Scikit-learn / XGBoost / SHAP' },
-              { num: '03', title: 'Data Architecture', desc: 'Robust pipelines and automated workflows. Ensuring data integrity from source to dashboard.', tools: 'FastAPI / AWS / Streamlit' },
+              { num: '01', title: 'Generative AI & LLMs', desc: 'Building RAG pipelines, multi-agent systems, and prompt-engineered applications using LangChain, LangGraph, and Gemini API.', tools: 'LangChain / LangGraph / FAISS / Gemini API' },
+              { num: '02', title: 'Machine Learning & NLP', desc: 'End-to-end ML workflows from preprocessing and feature engineering to model evaluation. Sentiment analysis, text classification, and embeddings.', tools: 'Scikit-learn / TF-IDF / Word2Vec / BERT' },
+              { num: '03', title: 'Data Engineering & Deployment', desc: 'Scalable data pipelines, experiment tracking with MLflow, and deploying AI applications via Streamlit and Render.', tools: 'Streamlit / MLflow / Render / Git' },
             ].map((item, i) => (
               <div key={i} className="group flex flex-col md:flex-row justify-between py-12 border-b border-[#222] hover:border-[#555] transition-colors cursor-crosshair">
                 <div className="flex gap-8 mb-4 md:mb-0">
@@ -153,9 +154,9 @@ export default function HomePage() {
 
           <div className="flex flex-col gap-4">
             {[
-              { name: 'Customer Churn Prediction', metric: '94.7% ACC', type: 'Random Forest / SMOTE' },
-              { name: 'Demand Forecasting', metric: '30% COST REDUCTION', type: 'ARIMA / Time Series' },
-              { name: 'Sales Segmentation', metric: '25% ROI LIFT', type: 'K-Means / PCA' },
+              { name: 'Multi-Agent Research System', metric: 'LANGGRAPH', type: 'LLM Orchestration / 4 Agents' },
+              { name: 'Chat with PDF — RAG Q&A', metric: 'RAG + FAISS', type: 'LangChain / Gemini API' },
+              { name: 'YouTube Sentiment Analysis', metric: 'NLP + MLFLOW', type: 'TF-IDF / Logistic Regression' },
             ].map((proj, i) => (
               <Link href="/projects" key={i} className="group relative w-full block">
                 <div className="absolute inset-0 bg-[#111] scale-y-0 group-hover:scale-y-100 origin-bottom transition-transform duration-500 ease-[0.16,1,0.3,1] z-0" />

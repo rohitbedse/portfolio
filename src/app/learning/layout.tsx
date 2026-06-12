@@ -1,29 +1,23 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Learning Roadmap — Data Science Journey & Progress',
+  title: 'Learning Roadmap — AI/ML & GenAI Journey',
   description:
-    'Follow Rohit Bedse\'s transparent data science learning path: from Python fundamentals and SQL analytics through supervised ML and deep learning to MLOps and Generative AI. Track real-time progress across 6 learning phases.',
+    'Follow Rohit Bedse\'s AI/ML learning path: from Python fundamentals and SQL analytics through supervised ML, NLP, and word embeddings to Generative AI with LangChain, LangGraph, and RAG systems. Track real-time progress across 6 learning phases.',
   keywords: [
-    'Data Science Learning Roadmap',
-    'Machine Learning Learning Path',
-    'How to Learn Data Science',
-    'Data Science Career Path',
-    'Python Learning Journey',
-    'ML Roadmap 2026',
-    'Deep Learning Roadmap',
-    'MLOps Learning',
+    'AI ML Learning Roadmap',
+    'GenAI Learning Path',
+    'How to Learn AI',
+    'LangChain Learning',
+    'Machine Learning Roadmap',
+    'NLP Learning Path',
+    'RAG Systems Tutorial',
   ],
   openGraph: {
-    title: 'Data Science Learning Roadmap — Rohit Bedse',
+    title: 'AI/ML Learning Roadmap — Rohit Bedse',
     description:
-      'A structured, transparent view of a data science learning journey with real-time progress tracking across 6 phases.',
+      'A structured, transparent view of an AI/ML learning journey with real-time progress tracking across 6 phases.',
     url: 'https://rohitbedse.vercel.app/learning',
-  },
-  twitter: {
-    title: 'DS Learning Roadmap — Rohit Bedse',
-    description:
-      'From Python basics to Generative AI — follow the transparent data science learning path with progress tracking.',
   },
   alternates: {
     canonical: 'https://rohitbedse.vercel.app/learning',

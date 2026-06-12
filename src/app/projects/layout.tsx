@@ -1,31 +1,25 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Data Science Projects — Churn Prediction, Forecasting & More',
+  title: 'AI/ML Projects — Multi-Agent Systems, RAG, NLP & More',
   description:
-    'Explore Rohit Bedse\'s data science portfolio: Customer Churn Prediction (94.7% accuracy), Sales Forecasting with ARIMA, Market Segmentation with K-Means, Netflix EDA, A/B Testing Framework, and House Price Regression.',
+    'Explore Rohit Bedse\'s AI/ML projects: Multi-Agent Research System (LangGraph), Chat with PDF RAG system (LangChain + FAISS + Gemini), and YouTube Sentiment Analysis (TF-IDF + MLflow). Real-world GenAI applications with source code.',
   keywords: [
-    'Data Science Projects',
-    'Machine Learning Projects',
-    'Customer Churn Prediction',
-    'Sales Forecasting ARIMA',
-    'Market Segmentation K-Means',
+    'AI ML Projects',
+    'Multi-Agent Research System',
+    'RAG System',
+    'LangGraph Project',
+    'LangChain FAISS',
+    'YouTube Sentiment Analysis',
+    'GenAI Projects',
+    'NLP Projects',
     'Python ML Projects',
-    'Portfolio Projects',
-    'Kaggle',
-    'Scikit-learn Projects',
-    'XGBoost Projects',
   ],
   openGraph: {
-    title: 'Data Science Projects by Rohit Bedse',
+    title: 'AI/ML Projects by Rohit Bedse',
     description:
-      'Real-world ML projects: Churn Prediction (94.7% ACC), Sales Forecasting, Market Segmentation, and more. End-to-end data science workflows.',
+      'Real-world GenAI projects: Multi-Agent LLM System, RAG Document Q&A, and YouTube Sentiment Analysis with source code.',
     url: 'https://rohitbedse.vercel.app/projects',
-  },
-  twitter: {
-    title: 'Data Science Projects — Rohit Bedse',
-    description:
-      'Explore ML projects including churn prediction, time-series forecasting, clustering, and EDA case studies.',
   },
   alternates: {
     canonical: 'https://rohitbedse.vercel.app/projects',

@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Mail, Github, Linkedin, Twitter, Send, CheckCircle, MapPin, Clock, Zap } from 'lucide-react'
+import { Mail, Github, Linkedin, Twitter, Send, CheckCircle, MapPin, Clock, Zap, Phone } from 'lucide-react'
 import { useState } from 'react'
 
 const itemVariants = {
@@ -13,16 +13,24 @@ const socials = [
   {
     icon: <Mail size={22} />,
     label: 'Email',
-    value: 'rohit.bedse@gmail.com',
-    href: 'mailto:rohit.bedse@gmail.com',
+    value: 'rbedse81@gmail.com',
+    href: 'mailto:rbedse81@gmail.com',
     color: 'var(--cyan)',
     desc: 'Best for project inquiries',
+  },
+  {
+    icon: <Phone size={22} />,
+    label: 'Phone',
+    value: '+91 8698533040',
+    href: 'tel:+918698533040',
+    color: 'var(--green)',
+    desc: 'Call or WhatsApp',
   },
   {
     icon: <Github size={22} />,
     label: 'GitHub',
     value: '@rohitbedse',
-    href: 'https://github.com',
+    href: 'https://github.com/rohitbedse',
     color: 'var(--purple)',
     desc: 'See my code & projects',
   },
@@ -30,17 +38,9 @@ const socials = [
     icon: <Linkedin size={22} />,
     label: 'LinkedIn',
     value: 'Rohit Bedse',
-    href: 'https://linkedin.com',
+    href: 'https://linkedin.com/in/rohitbedse',
     color: 'var(--blue)',
     desc: 'Professional networking',
-  },
-  {
-    icon: <Twitter size={22} />,
-    label: 'Twitter/X',
-    value: '@rohitbedse',
-    href: 'https://twitter.com',
-    color: 'var(--pink)',
-    desc: 'Data science thoughts',
   },
 ]
 
@@ -81,8 +81,8 @@ export default function ContactPage() {
             <span className="gradient-text">Connect</span>
           </h1>
           <p className="text-gray-400 text-lg max-w-xl mx-auto">
-            Whether you have a project in mind, a question about my work, or just want to
-            talk data science — I&apos;d love to hear from you.
+            Whether you have a project in mind, an AI/ML opportunity, or just want to
+            talk about generative AI — I&apos;d love to hear from you.
           </p>
         </motion.div>
       </section>
@@ -113,12 +113,12 @@ export default function ContactPage() {
                 <span className="text-sm text-gray-300">Open to Opportunities</span>
               </div>
               <p className="text-gray-400 text-sm mb-4">
-                Actively looking for entry-level Data Science roles, internships, and freelance analytics projects.
+                Actively looking for AI/ML roles, GenAI internships, and freelance projects involving LLMs and RAG systems.
               </p>
               <div className="space-y-2 text-sm">
                 <div className="flex items-center gap-2 text-gray-400">
                   <MapPin size={13} style={{ color: 'var(--cyan)' }} />
-                  Pune, India (Remote OK)
+                  Pune, Maharashtra (Remote OK)
                 </div>
                 <div className="flex items-center gap-2 text-gray-400">
                   <Clock size={13} style={{ color: 'var(--purple)' }} />
@@ -126,7 +126,7 @@ export default function ContactPage() {
                 </div>
                 <div className="flex items-center gap-2 text-gray-400">
                   <Zap size={13} style={{ color: 'var(--gold)' }} />
-                  Available for freelance immediately
+                  Available immediately
                 </div>
               </div>
             </motion.div>
@@ -136,8 +136,8 @@ export default function ContactPage() {
               <motion.a
                 key={s.label}
                 href={s.href}
-                target="_blank"
-                rel="noopener noreferrer"
+                target={s.href.startsWith('http') ? '_blank' : undefined}
+                rel={s.href.startsWith('http') ? 'noopener noreferrer' : undefined}
                 variants={itemVariants}
                 className="glass rounded-xl border border-white/08 p-5 flex items-center gap-4 group hover:border-white/20 transition-all block"
                 whileHover={{ x: 4, scale: 1.02 }}
@@ -241,8 +241,8 @@ export default function ContactPage() {
                       className="input-field"
                     >
                       <option value="">Select a topic…</option>
-                      <option value="job">💼 Job / Internship Opportunity</option>
-                      <option value="freelance">🔧 Freelance Analytics Project</option>
+                      <option value="job">💼 AI/ML Role / Internship</option>
+                      <option value="freelance">🔧 Freelance GenAI Project</option>
                       <option value="collab">🤝 Collaboration / Research</option>
                       <option value="question">❓ Technical Question</option>
                       <option value="other">💬 Other</option>
@@ -319,12 +319,12 @@ export default function ContactPage() {
             variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.08 } } }}
           >
             {[
-              { emoji: '🎯', title: 'Entry-Level DS Role', desc: 'Full-time positions in data science, analytics, or ML engineering.' },
-              { emoji: '📊', title: 'Internship', desc: 'Paid data science or ML internships (remote or Pune-based).' },
-              { emoji: '🔧', title: 'Freelance Analytics', desc: 'Short-term data analysis, dashboards, and ML model projects.' },
-              { emoji: '🤝', title: 'Research Collaboration', desc: 'Academic or applied ML research collaborations and publications.' },
-              { emoji: '✍️', title: 'Technical Writing', desc: 'Data science content creation, tutorials, and documentation.' },
-              { emoji: '🏆', title: 'Kaggle / Hackathons', desc: 'Team up for Kaggle competitions or data hackathons.' },
+              { emoji: '🤖', title: 'AI/ML Engineer Role', desc: 'Full-time positions in AI/ML engineering, GenAI development, or data science.' },
+              { emoji: '🧠', title: 'GenAI Internship', desc: 'Internships focused on LLMs, RAG systems, or multi-agent architectures.' },
+              { emoji: '🔧', title: 'Freelance AI Projects', desc: 'Short-term GenAI projects, chatbots, document Q&A systems, and RAG pipelines.' },
+              { emoji: '🤝', title: 'Research Collaboration', desc: 'Applied AI research collaborations and LLM-based system development.' },
+              { emoji: '✍️', title: 'Technical Writing', desc: 'AI/ML content creation, tutorials, and technical documentation.' },
+              { emoji: '🏆', title: 'Hackathons', desc: 'Team up for AI hackathons and GenAI buildathons.' },
             ].map((item) => (
               <motion.div
                 key={item.title}

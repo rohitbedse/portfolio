@@ -8,115 +8,64 @@ import { Github, ExternalLink, Star } from 'lucide-react'
 const projects = [
   {
     id: 1,
-    title: 'Customer Churn Prediction',
-    category: 'Classification',
-    emoji: '📉',
+    title: 'Multi-Agent Research System',
+    category: 'GenAI',
+    emoji: '🤖',
     description:
-      'End-to-end ML project predicting customer churn for a telecom company. Used SMOTE for class imbalance, feature importance analysis, and deployed a REST API with FastAPI.',
+      'Built a multi-agent LLM system to automate end-to-end research workflows, reducing manual information gathering effort.',
     fullDesc:
-      'Analyzed 7,000+ customer records. Applied feature engineering, SMOTE oversampling, and trained Random Forest achieving 94.7% accuracy. Visualized SHAP values to explain predictions.',
-    tech: ['Python', 'Scikit-learn', 'SMOTE', 'FastAPI', 'SHAP', 'Pandas'],
-    metric: '94.7% Accuracy',
-    metricColor: 'var(--green)',
-    impact: 'Reduced churn by 15% in simulated environment',
-    github: 'https://github.com',
-    demo: 'https://github.com',
+      'Designed a LangGraph-based state machine coordinating 4 agents (Search, Reader, Writer, Critic) for structured report generation. Implemented iterative quality control loop with automatic refinement (≤ 7 score trigger, max 2 retries) improving output reliability. Integrated real-time web retrieval using Tavily API and BeautifulSoup.',
+    tech: ['LangGraph', 'LLM Orchestration', 'Tavily API', 'BeautifulSoup', 'Streamlit', 'Python'],
+    metric: '4 Agents Orchestrated',
+    metricColor: 'var(--cyan)',
+    impact: 'Automated end-to-end research workflows with iterative quality control',
+    github: 'https://github.com/rohitbedse/Multi-agent-research-system-main',
+    demo: 'https://github.com/rohitbedse/Multi-agent-research-system-main',
     featured: true,
-    stars: 42,
+    stars: 0,
+    date: 'Mar 2026 – Apr 2026',
   },
   {
     id: 2,
-    title: 'Sales Forecasting with ARIMA',
-    category: 'Time Series',
-    emoji: '📈',
+    title: 'Chat with PDF — Intelligent Document Q&A',
+    category: 'RAG',
+    emoji: '📄',
     description:
-      'Time-series forecasting model for retail sales data incorporating seasonality, trend decomposition, and automated ARIMA parameter selection.',
+      'Built a RAG-based document intelligence system enabling context-aware question answering over PDFs using LangChain and FAISS.',
     fullDesc:
-      'Processed 3 years of daily sales data. Applied Box-Jenkins methodology, seasonal decomposition, and AutoARIMA. Created interactive forecast dashboard with Plotly.',
-    tech: ['Python', 'Statsmodels', 'ARIMA', 'Plotly', 'Pandas', 'Prophet'],
-    metric: '30% Cost Reduction',
-    metricColor: 'var(--cyan)',
-    impact: 'Improved forecast accuracy by 30%, reducing stockouts',
-    github: 'https://github.com',
-    demo: 'https://github.com',
+      'Implemented semantic search pipeline using FAISS and optimized chunking strategies for improved retrieval accuracy. Integrated Google Gemini for generating precise, context-grounded responses from document embeddings. Designed efficient preprocessing pipeline using PyPDF2 for scalable document ingestion.',
+    tech: ['Python', 'LangChain', 'FAISS', 'Google Gemini', 'Streamlit', 'PyPDF2'],
+    metric: 'RAG + FAISS',
+    metricColor: 'var(--purple)',
+    impact: 'Context-aware Q&A with semantic search over large documents',
+    github: 'https://github.com/rohitbedse/Mini-Project',
+    demo: 'https://github.com/rohitbedse/Mini-Project',
     featured: true,
-    stars: 38,
+    stars: 0,
+    date: 'May 2025 – Jun 2025',
   },
   {
     id: 3,
-    title: 'Market Segmentation Engine',
-    category: 'Clustering',
-    emoji: '🎯',
+    title: 'YouTube Sentiment Analysis',
+    category: 'NLP',
+    emoji: '📺',
     description:
-      'K-Means clustering on 100K+ customers using RFM analysis (Recency, Frequency, Monetary). Built an interactive Streamlit dashboard for segment exploration.',
+      'Built and evaluated a sentiment classification model (TF-IDF + Logistic Regression) for real-time YouTube comment analysis with a Chrome Extension.',
     fullDesc:
-      'Applied PCA for dimensionality reduction, Elbow method + Silhouette score for optimal K, and created actionable customer personas for each segment.',
-    tech: ['Python', 'K-Means', 'PCA', 'Streamlit', 'Seaborn', 'SQL'],
-    metric: '25% ROI Increase',
-    metricColor: 'var(--purple)',
-    impact: 'Increased marketing ROI through personalized campaigns',
-    github: 'https://github.com',
-    demo: 'https://github.com',
+      'Developed preprocessing pipeline handling emojis, spam, and noisy text. Evaluated model using Precision, Recall, and F1-score to ensure statistically meaningful performance. Tracked experiments using MLflow for model comparison and reproducibility.',
+    tech: ['Python', 'TF-IDF', 'Logistic Regression', 'MLflow', 'Chrome Extension', 'NLP'],
+    metric: 'NLP + MLflow',
+    metricColor: 'var(--green)',
+    impact: 'Real-time sentiment analysis with experiment tracking',
+    github: 'https://github.com/rohitbedse/yt-comment-sentiment-analysis',
+    demo: 'https://github.com/rohitbedse/yt-comment-sentiment-analysis',
     featured: true,
-    stars: 29,
-  },
-  {
-    id: 4,
-    title: 'Netflix Content EDA',
-    category: 'EDA',
-    emoji: '🎬',
-    description:
-      'Comprehensive exploratory data analysis of 10,000+ Netflix titles with trend analysis, genre distribution, country insights, and content rating breakdown.',
-    fullDesc:
-      'Analyzed content strategies, type ratios, release patterns, and top contributing countries using rich visualizations and statistical summaries.',
-    tech: ['Python', 'Pandas', 'Plotly', 'Matplotlib', 'WordCloud', 'NumPy'],
-    metric: '10K+ Records',
-    metricColor: 'var(--pink)',
-    impact: 'Revealed key content strategy insights and trends',
-    github: 'https://github.com',
-    demo: 'https://github.com',
-    featured: false,
-    stars: 55,
-  },
-  {
-    id: 5,
-    title: 'A/B Testing Framework',
-    category: 'Statistics',
-    emoji: '⚖️',
-    description:
-      'Statistical A/B testing framework for web product experiments. Implemented z-test, t-test, chi-square, and Bayesian hypothesis testing with power analysis.',
-    fullDesc:
-      'Built reusable Python functions for experiment design, significance testing, effect size calculation, and results visualization. Used on 3 real campaigns.',
-    tech: ['Python', 'SciPy', 'Statsmodels', 'Matplotlib', 'Bayesian', 'Pandas'],
-    metric: '20% Conversion Lift',
-    metricColor: 'var(--gold)',
-    impact: 'Improved email campaign conversion by 20%',
-    github: 'https://github.com',
-    demo: 'https://github.com',
-    featured: false,
-    stars: 31,
-  },
-  {
-    id: 6,
-    title: 'House Price Regression',
-    category: 'Regression',
-    emoji: '🏠',
-    description:
-      'Kaggle-style regression project predicting house prices. Feature engineering, handling missing data, regularization (Ridge/Lasso) and ensemble stacking.',
-    fullDesc:
-      'Kaggle competition top 20% finish. Extensive feature engineering from 80 features, outlier handling, log-transformation of target, and ensemble blend of XGBoost + LGB.',
-    tech: ['Python', 'XGBoost', 'Ridge', 'Lasso', 'Scikit-learn', 'Pandas'],
-    metric: 'Top 18% Kaggle',
-    metricColor: 'var(--cyan)',
-    impact: 'Kaggle Housing Prices competition — top 18% finish',
-    github: 'https://github.com',
-    demo: 'https://github.com',
-    featured: false,
-    stars: 22,
+    stars: 0,
+    date: 'Oct 2025 – Dec 2025',
   },
 ]
 
-const categories = ['All', 'Classification', 'Time Series', 'Clustering', 'EDA', 'Statistics', 'Regression']
+const categories = ['All', 'GenAI', 'RAG', 'NLP']
 
 export default function ProjectsPage() {
   const [selected, setSelected] = useState('All')
@@ -138,12 +87,12 @@ export default function ProjectsPage() {
             <span>🚀</span> Portfolio
           </span>
           <h1 className="hero-title text-5xl md:text-6xl mb-5">
-            <span className="text-white">Data Science </span>
+            <span className="text-white">AI/ML </span>
             <span className="gradient-text">Projects</span>
           </h1>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            Real-world projects demonstrating end-to-end data science workflows —
-            from data collection and cleaning to model deployment and storytelling.
+            Real-world projects demonstrating end-to-end AI/ML workflows —
+            from RAG systems and multi-agent orchestration to NLP and deployment.
           </p>
         </motion.div>
 
@@ -225,10 +174,7 @@ export default function ProjectsPage() {
                   <span className="text-xs px-2 py-0.5 rounded glass border border-white/10 text-gray-400 mono">
                     {project.category}
                   </span>
-                  <div className="flex items-center gap-1 text-xs text-gray-500">
-                    <Star size={11} />
-                    {project.stars}
-                  </div>
+                  <span className="text-xs text-gray-500 mono">{project.date}</span>
                 </div>
 
                 <h2 className="text-lg font-bold text-white mb-3 group-hover:text-cyan-300 transition-colors">
@@ -273,7 +219,7 @@ export default function ProjectsPage() {
                   className="flex items-center gap-1.5 text-sm"
                   style={{ color: 'var(--cyan)' }}
                 >
-                  <ExternalLink size={14} /> Live Demo
+                  <ExternalLink size={14} /> View Project
                 </a>
                 <button
                   onClick={() => setExpanded(expanded === project.id ? null : project.id)}
@@ -295,10 +241,10 @@ export default function ProjectsPage() {
         >
           <div className="glass rounded-2xl border border-white/08 p-8 inline-block">
             <p className="text-gray-400 mb-4">
-              More projects and notebooks available on my GitHub
+              More projects and code available on my GitHub
             </p>
             <a
-              href="https://github.com"
+              href="https://github.com/rohitbedse"
               target="_blank"
               rel="noopener noreferrer"
               id="projects-github-cta"

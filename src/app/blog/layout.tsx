@@ -1,31 +1,24 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Data Science Blog — EDA, ML, Statistics & Python Tutorials',
+  title: 'AI/ML Blog — GenAI, RAG, NLP & Python Tutorials',
   description:
-    'Read practical data science articles by Rohit Bedse: EDA frameworks, feature engineering techniques, A/B testing guides, time series analysis with ARIMA, SQL patterns for data scientists, clustering methods, and data visualization principles.',
+    'Read practical AI/ML articles by Rohit Bedse: RAG system architecture, LangChain tutorials, NLP techniques, feature engineering, prompt engineering, and Python data science guides.',
   keywords: [
-    'Data Science Blog',
-    'Machine Learning Tutorials',
-    'EDA Guide',
-    'Feature Engineering',
-    'A/B Testing Statistics',
-    'ARIMA Time Series',
-    'SQL for Data Scientists',
+    'AI ML Blog',
+    'RAG System Tutorial',
+    'LangChain Guide',
+    'NLP Tutorial',
+    'GenAI Blog',
     'Python Data Science',
-    'K-Means Clustering',
-    'Data Visualization',
+    'Machine Learning Articles',
+    'Prompt Engineering',
   ],
   openGraph: {
-    title: 'Data Science Blog by Rohit Bedse',
+    title: 'AI/ML Blog by Rohit Bedse',
     description:
-      'Practical articles on EDA, ML techniques, statistics, and Python tutorials. Clear explanations with code examples.',
+      'Practical articles on GenAI, RAG systems, NLP, ML techniques, and Python tutorials. Clear explanations with code examples.',
     url: 'https://rohitbedse.vercel.app/blog',
-  },
-  twitter: {
-    title: 'Data Science Blog — Rohit Bedse',
-    description:
-      'Applied data science articles covering EDA, ML, statistics, and career advice for aspiring data scientists.',
   },
   alternates: {
     canonical: 'https://rohitbedse.vercel.app/blog',

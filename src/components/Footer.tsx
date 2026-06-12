@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Github, Linkedin, Mail, ArrowUp, BarChart2, Heart } from 'lucide-react'
+import { Github, Linkedin, Mail, ArrowUp, BarChart2, Heart, Phone } from 'lucide-react'
 import Link from 'next/link'
 
 const navLinks = [
@@ -38,26 +38,26 @@ export default function Footer() {
                   <BarChart2 size={16} color="#000" strokeWidth={2.5} />
                 </div>
                 <span className="font-bold text-lg mono" style={{ color: 'var(--cyan)' }}>
-                  Rohit<span style={{ color: '#a78bfa' }}>.ds</span>
+                  Rohit<span style={{ color: '#a78bfa' }}>.ai</span>
                 </span>
               </motion.div>
             </Link>
             <p className="text-gray-400 text-sm leading-relaxed max-w-xs mb-5">
-              Entry-level Data Scientist turning raw data into meaningful insights.
-              Passionate about ML, statistics, and telling impactful data stories.
+              AI/ML Engineer & GenAI Developer building RAG-based and multi-agent LLM systems.
+              Passionate about generative AI, NLP, and scalable deployment.
             </p>
             <div className="flex gap-3">
               {[
-                { icon: <Github size={18} />, href: 'https://github.com', id: 'footer-github', color: 'var(--cyan)' },
-                { icon: <Linkedin size={18} />, href: 'https://linkedin.com', id: 'footer-linkedin', color: 'var(--purple)' },
-                { icon: <Mail size={18} />, href: 'mailto:rohit.bedse@gmail.com', id: 'footer-email', color: 'var(--pink)' },
+                { icon: <Github size={18} />, href: 'https://github.com/rohitbedse', id: 'footer-github', color: 'var(--cyan)' },
+                { icon: <Linkedin size={18} />, href: 'https://linkedin.com/in/rohitbedse', id: 'footer-linkedin', color: 'var(--purple)' },
+                { icon: <Mail size={18} />, href: 'mailto:rbedse81@gmail.com', id: 'footer-email', color: 'var(--pink)' },
               ].map((s) => (
                 <motion.a
                   key={s.id}
                   id={s.id}
                   href={s.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  target={s.href.startsWith('http') ? '_blank' : undefined}
+                  rel={s.href.startsWith('http') ? 'noopener noreferrer' : undefined}
                   className="w-10 h-10 glass rounded-lg flex items-center justify-center text-gray-400 border border-white/10 hover:border-white/30 transition-all"
                   whileHover={{ scale: 1.1, y: -2, color: s.color }}
                   whileTap={{ scale: 0.9 }}
@@ -92,7 +92,7 @@ export default function Footer() {
           <div>
             <h4 className="text-white font-semibold mb-4 text-sm uppercase tracking-wider">Tech Stack</h4>
             <div className="flex flex-wrap gap-1.5">
-              {['Python', 'SQL', 'Pandas', 'Scikit-learn', 'XGBoost', 'Plotly', 'Streamlit', 'PyTorch'].map((t) => (
+              {['Python', 'LangChain', 'LangGraph', 'FAISS', 'Gemini API', 'Scikit-learn', 'Streamlit', 'MLflow'].map((t) => (
                 <span key={t} className="tag-cyan">{t}</span>
               ))}
             </div>
@@ -104,7 +104,7 @@ export default function Footer() {
                 />
                 <span className="text-xs text-gray-400">Available for opportunities</span>
               </div>
-              <div className="text-xs text-gray-500 mono">Pune, India · Remote OK</div>
+              <div className="text-xs text-gray-500 mono">Pune, Maharashtra · Remote OK</div>
             </div>
           </div>
         </div>

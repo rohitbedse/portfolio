@@ -14,23 +14,23 @@ const skillCategories = [
     skills: [
       { name: 'Python', level: 90, icon: '🐍' },
       { name: 'SQL', level: 85, icon: '🗄️' },
-      { name: 'R', level: 55, icon: '📊' },
       { name: 'Git & GitHub', level: 78, icon: '🔧' },
-      { name: 'Bash/CLI', level: 60, icon: '💻' },
-      { name: 'Jupyter Notebooks', level: 92, icon: '📓' },
-    ],
-  },
-  {
-    category: 'Data Science Libraries',
-    emoji: '📦',
-    color: 'var(--purple)',
-    skills: [
       { name: 'Pandas', level: 92, icon: '🐼' },
       { name: 'NumPy', level: 88, icon: '🔢' },
       { name: 'Scikit-learn', level: 85, icon: '🤖' },
-      { name: 'Matplotlib', level: 82, icon: '📈' },
-      { name: 'Seaborn', level: 80, icon: '🎨' },
-      { name: 'Plotly', level: 75, icon: '📉' },
+    ],
+  },
+  {
+    category: 'GenAI / LLM',
+    emoji: '🧠',
+    color: 'var(--purple)',
+    skills: [
+      { name: 'RAG Systems', level: 88, icon: '📄' },
+      { name: 'LangChain', level: 85, icon: '🔗' },
+      { name: 'LangGraph', level: 82, icon: '🗺️' },
+      { name: 'FAISS', level: 80, icon: '🔍' },
+      { name: 'Gemini API', level: 78, icon: '💎' },
+      { name: 'Prompt Engineering', level: 85, icon: '✍️' },
     ],
   },
   {
@@ -38,51 +38,51 @@ const skillCategories = [
     emoji: '🤖',
     color: 'var(--pink)',
     skills: [
-      { name: 'Linear/Logistic Regression', level: 90, icon: '📐' },
-      { name: 'Decision Trees / RF', level: 85, icon: '🌳' },
-      { name: 'XGBoost / LightGBM', level: 78, icon: '⚡' },
-      { name: 'K-Means / DBSCAN', level: 80, icon: '🎯' },
-      { name: 'Time Series (ARIMA)', level: 72, icon: '📅' },
-      { name: 'Neural Networks (basics)', level: 65, icon: '🧠' },
+      { name: 'Regression', level: 88, icon: '📐' },
+      { name: 'Classification', level: 85, icon: '🎯' },
+      { name: 'Ensemble Models (RF, GB)', level: 82, icon: '🌳' },
+      { name: 'Feature Engineering', level: 85, icon: '⚙️' },
+      { name: 'Cross-validation', level: 80, icon: '🔄' },
+      { name: 'Hyperparameter Tuning', level: 78, icon: '⚡' },
     ],
   },
   {
-    category: 'Statistics & Analytics',
-    emoji: '📊',
+    category: 'NLP & Embeddings',
+    emoji: '📝',
     color: 'var(--green)',
     skills: [
-      { name: 'Hypothesis Testing', level: 82, icon: '🧪' },
-      { name: 'A/B Testing', level: 78, icon: '⚖️' },
-      { name: 'EDA & Data Cleaning', level: 92, icon: '🔍' },
-      { name: 'Feature Engineering', level: 85, icon: '⚙️' },
-      { name: 'Probability Theory', level: 75, icon: '🎲' },
-      { name: 'Statistical Modeling', level: 78, icon: '📐' },
+      { name: 'Text Cleaning', level: 88, icon: '🧹' },
+      { name: 'TF-IDF', level: 85, icon: '📊' },
+      { name: 'Word2Vec / GloVe', level: 75, icon: '🔤' },
+      { name: 'Sentence Transformers', level: 72, icon: '🤗' },
+      { name: 'BERT (Basics)', level: 65, icon: '🧠' },
+      { name: 'N-grams / BoW', level: 82, icon: '📚' },
     ],
   },
   {
-    category: 'Visualization & BI',
-    emoji: '📈',
+    category: 'Statistics & Analysis',
+    emoji: '📊',
     color: 'var(--gold)',
     skills: [
-      { name: 'Tableau', level: 80, icon: '📊' },
-      { name: 'Power BI', level: 70, icon: '💹' },
-      { name: 'Streamlit', level: 78, icon: '🚀' },
-      { name: 'Plotly Dash', level: 72, icon: '📉' },
-      { name: 'Excel / G-Sheets', level: 88, icon: '📋' },
-      { name: 'DataViz Best Practices', level: 85, icon: '✨' },
+      { name: 'Descriptive Statistics', level: 85, icon: '📈' },
+      { name: 'Hypothesis Testing', level: 78, icon: '🧪' },
+      { name: 'Probability Distributions', level: 75, icon: '🎲' },
+      { name: 'Correlation Analysis', level: 82, icon: '🔗' },
+      { name: 'A/B Testing Basics', level: 72, icon: '⚖️' },
+      { name: 'EDA', level: 90, icon: '🔍' },
     ],
   },
   {
-    category: 'Cloud & Deployment',
-    emoji: '☁️',
+    category: 'Deployment & Visualization',
+    emoji: '🚀',
     color: 'var(--cyan)',
     skills: [
-      { name: 'Google Colab', level: 90, icon: '🎓' },
-      { name: 'AWS (S3, SageMaker)', level: 55, icon: '☁️' },
-      { name: 'Docker (basics)', level: 50, icon: '🐳' },
-      { name: 'FastAPI', level: 65, icon: '⚡' },
-      { name: 'MLflow', level: 60, icon: '🔁' },
-      { name: 'GitHub Actions', level: 58, icon: '🤖' },
+      { name: 'Streamlit', level: 85, icon: '🚀' },
+      { name: 'Render', level: 70, icon: '☁️' },
+      { name: 'Matplotlib', level: 82, icon: '📈' },
+      { name: 'Seaborn', level: 80, icon: '🎨' },
+      { name: 'MLflow', level: 75, icon: '🔁' },
+      { name: 'Model Evaluation Metrics', level: 85, icon: '📐' },
     ],
   },
 ]
@@ -121,8 +121,8 @@ export default function SkillsPage() {
             <span className="gradient-text">Galaxy</span>
           </h1>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            12 core skills orbiting my data science core — click any node to explore proficiency,
-            description, and projects. Built through real-world engineering.
+            36+ skills across GenAI, ML, NLP, and deployment — click any node to explore proficiency.
+            Built through real-world projects and hands-on engineering.
           </p>
         </motion.div>
 
@@ -277,17 +277,17 @@ export default function SkillsPage() {
             <div className="flex flex-wrap gap-4 justify-center">
               {[
                 { name: 'Python', emoji: '🐍', color: '#3b82f6' },
-                { name: 'Pandas', emoji: '🐼', color: '#8b5cf6' },
-                { name: 'Scikit-learn', emoji: '🤖', color: '#ec4899' },
-                { name: 'SQL', emoji: '🗄️', color: '#06b6d4' },
-                { name: 'Jupyter', emoji: '📓', color: '#f59e0b' },
-                { name: 'Tableau', emoji: '📊', color: '#10b981' },
-                { name: 'Git', emoji: '🔧', color: '#f97316' },
-                { name: 'NumPy', emoji: '🔢', color: '#6366f1' },
-                { name: 'Matplotlib', emoji: '📈', color: '#14b8a6' },
-                { name: 'Seaborn', emoji: '🎨', color: '#a855f7' },
-                { name: 'XGBoost', emoji: '⚡', color: '#ef4444' },
+                { name: 'LangChain', emoji: '🔗', color: '#8b5cf6' },
+                { name: 'LangGraph', emoji: '🗺️', color: '#ec4899' },
+                { name: 'FAISS', emoji: '🔍', color: '#06b6d4' },
+                { name: 'Gemini API', emoji: '💎', color: '#f59e0b' },
+                { name: 'Pandas', emoji: '🐼', color: '#10b981' },
+                { name: 'Scikit-learn', emoji: '🤖', color: '#f97316' },
+                { name: 'SQL', emoji: '🗄️', color: '#6366f1' },
                 { name: 'Streamlit', emoji: '🚀', color: '#00d4ff' },
+                { name: 'MLflow', emoji: '🔁', color: '#14b8a6' },
+                { name: 'Git', emoji: '🔧', color: '#a855f7' },
+                { name: 'NumPy', emoji: '🔢', color: '#ef4444' },
               ].map(tool => (
                 <motion.div
                   key={tool.name}
