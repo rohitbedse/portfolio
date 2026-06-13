@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { useState } from 'react'
-import { Github, ExternalLink, Star } from 'lucide-react'
+import { Github, ExternalLink } from 'lucide-react'
 
 
 const projects = [
