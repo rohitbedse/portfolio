@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Mail, Github, Linkedin, Twitter, Send, CheckCircle, MapPin, Clock, Zap, Phone } from 'lucide-react'
+import { Mail, Github, Linkedin, Send, CheckCircle, MapPin, Clock, Zap, Phone } from 'lucide-react'
 import { useState } from 'react'
 
 const itemVariants = {
@@ -56,11 +56,29 @@ export default function ContactPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setLoading(true)
-    await new Promise(r => setTimeout(r, 1200))
-    setLoading(false)
-    setSubmitted(true)
-    setTimeout(() => setSubmitted(false), 4000)
-    setForm({ name: '', email: '', subject: '', message: '' })
+    try {
+      const res = await fetch('https://formsubmit.co/ajax/rohitbedse155@gmail.com', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          name: form.name,
+          email: form.email,
+          subject: form.subject || 'Portfolio Contact',
+          message: form.message,
+          _subject: `Portfolio: ${form.subject || 'New message'} from ${form.name}`,
+          _captcha: 'false',
+          _template: 'table',
+        }),
+      })
+      if (!res.ok) throw new Error('Submit failed')
+      setSubmitted(true)
+      setTimeout(() => setSubmitted(false), 5000)
+      setForm({ name: '', email: '', subject: '', message: '' })
+    } catch {
+      alert('Something went wrong. Please try again or email me directly.')
+    } finally {
+      setLoading(false)
+    }
   }
 
   return (
