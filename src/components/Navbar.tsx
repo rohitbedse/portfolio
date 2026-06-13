@@ -54,7 +54,7 @@ export default function Navbar() {
                 className="font-bold text-lg mono"
                 style={{ color: 'var(--cyan)' }}
               >
-                RB<span style={{ color: '#a78bfa' }}>.ds</span>
+                RB<span style={{ color: '#a78bfa' }}></span>
               </span>
             </motion.div>
           </Link>
