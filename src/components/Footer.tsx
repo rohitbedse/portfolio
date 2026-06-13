@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Github, Linkedin, Mail, ArrowUp, BarChart2, Heart, Phone } from 'lucide-react'
+import { Github, Linkedin, Mail, ArrowUp, BarChart2, Heart } from 'lucide-react'
 import Link from 'next/link'
 
 const navLinks = [
