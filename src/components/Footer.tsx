@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Github, Linkedin, Mail, ArrowUp, BarChart2, Heart } from 'lucide-react'
+import { Github, Linkedin, Mail, ArrowUp, BarChart2, Heart, Instagram, Twitter } from 'lucide-react'
 import Link from 'next/link'
 
 const navLinks = [
@@ -48,16 +48,19 @@ export default function Footer() {
             </p>
             <div className="flex gap-3">
               {[
-                { icon: <Github size={18} />, href: 'https://github.com/rohitbedse', id: 'footer-github', color: 'var(--cyan)' },
-                { icon: <Linkedin size={18} />, href: 'https://linkedin.com/in/rohitbedse', id: 'footer-linkedin', color: 'var(--purple)' },
-                { icon: <Mail size={18} />, href: 'mailto:rbedse81@gmail.com', id: 'footer-email', color: 'var(--pink)' },
+                { icon: <Github size={18} />, href: 'https://github.com/rohitbedse', id: 'footer-github', color: 'var(--cyan)', label: 'Rohit Bedse on GitHub' },
+                { icon: <Linkedin size={18} />, href: 'https://linkedin.com/in/rohitbedse', id: 'footer-linkedin', color: 'var(--purple)', label: 'Rohit Bedse on LinkedIn' },
+                { icon: <Instagram size={18} />, href: 'https://instagram.com/rohitbedse_', id: 'footer-instagram', color: 'var(--pink)', label: 'Rohit Bedse on Instagram' },
+                { icon: <Twitter size={18} />, href: 'https://x.com/rohitbedse', id: 'footer-twitter', color: 'var(--cyan)', label: 'Rohit Bedse on Twitter/X' },
+                { icon: <Mail size={18} />, href: 'mailto:rbedse81@gmail.com', id: 'footer-email', color: 'var(--pink)', label: 'Email Rohit Bedse' },
               ].map((s) => (
                 <motion.a
                   key={s.id}
                   id={s.id}
                   href={s.href}
                   target={s.href.startsWith('http') ? '_blank' : undefined}
-                  rel={s.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                  rel={s.href.startsWith('http') ? 'noopener noreferrer me' : undefined}
+                  aria-label={s.label}
                   className="w-10 h-10 glass rounded-lg flex items-center justify-center text-gray-400 border border-white/10 hover:border-white/30 transition-all"
                   whileHover={{ scale: 1.1, y: -2, color: s.color }}
                   whileTap={{ scale: 0.9 }}

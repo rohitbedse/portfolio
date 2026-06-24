@@ -1,0 +1,20 @@
+{
+  "name": "Rohit Bedse — AI/ML Engineer & Generative AI Developer",
+  "short_name": "Rohit Bedse",
+  "description": "Portfolio of Rohit Bedse — Computer Science undergraduate specializing in Generative AI systems. Building RAG-based and multi-agent LLM applications.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#030305",
+  "theme_color": "#030305",
+  "orientation": "portrait-primary",
+  "categories": ["portfolio", "technology", "education"],
+  "lang": "en",
+  "icons": [
+    {
+      "src": "/og-image.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
