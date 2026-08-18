@@ -39,31 +39,31 @@ export default function Home() {
         >
           {/* Main heading */}
           <motion.div variants={itemVariants} className="mb-6">
-            <h1 className="text-6xl md:text-7xl font-bold mb-2">
-              <span className="block text-white">Rohit Bedse</span>
+            <h1 className="text-6xl md:text-7xl font-bold mb-4">
+              <span className="block gradient-text">Rohit Bedse</span>
             </h1>
-            <h2 className="text-2xl md:text-3xl gradient-text font-semibold">
-              Machine Learning Engineer | GenAI Builder | Future LLM Specialist
+            <h2 className="text-xl md:text-2xl text-gray-400 font-medium tracking-wide">
+              ML Engineer &nbsp;·&nbsp; GenAI Builder &nbsp;·&nbsp; LLM Specialist
             </h2>
           </motion.div>
 
-          {/* Subtitle with typewriter effect */}
+          {/* Subtitle */}
           <motion.p
             variants={itemVariants}
-            className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto mb-12 leading-relaxed"
+            className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-12 leading-relaxed"
           >
             I build ML systems from mathematical intuition to production. Specializing in
             <span className="text-neon-cyan font-semibold"> GenAI architecture</span>,
-            <span className="text-neon-pink font-semibold"> RAG systems</span>, and
-            <span className="text-neon-green font-semibold"> LLM orchestration</span>.
+            <span className="text-neon-cyan font-semibold"> RAG systems</span>, and
+            <span className="text-neon-cyan font-semibold"> LLM orchestration</span>.
           </motion.p>
 
           {/* CTA Buttons */}
           <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
             <Link href="/projects">
               <motion.button
-                className="px-8 py-3 rounded-lg glass border border-neon-cyan text-neon-cyan font-semibold hover:neon-glow transition-all duration-300 flex items-center justify-center gap-2 group"
-                whileHover={{ scale: 1.05, boxShadow: '0 0 20px rgba(0, 255, 255, 0.5)' }}
+                className="px-10 py-3.5 rounded-lg bg-neon-cyan text-dark-bg font-bold hover:shadow-[0_0_30px_rgba(0,255,255,0.4)] transition-all duration-300 flex items-center justify-center gap-2 group"
+                whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
                 View Projects
@@ -73,8 +73,8 @@ export default function Home() {
 
             <a href="#" download>
               <motion.button
-                className="px-8 py-3 rounded-lg glass border border-neon-pink text-neon-pink font-semibold hover:neon-glow-pink transition-all duration-300 flex items-center justify-center gap-2 group"
-                whileHover={{ scale: 1.05, boxShadow: '0 0 20px rgba(255, 0, 110, 0.5)' }}
+                className="px-10 py-3.5 rounded-lg glass border border-gray-500 text-gray-200 font-semibold hover:border-neon-cyan hover:text-neon-cyan transition-all duration-300 flex items-center justify-center gap-2 group"
+                whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
                 <Download size={20} />
@@ -84,8 +84,8 @@ export default function Home() {
 
             <Link href="/contact">
               <motion.button
-                className="px-8 py-3 rounded-lg glass border border-neon-green text-neon-green font-semibold hover:neon-glow transition-all duration-300 flex items-center justify-center gap-2 group"
-                whileHover={{ scale: 1.05, boxShadow: '0 0 20px rgba(0, 255, 65, 0.5)' }}
+                className="px-10 py-3.5 rounded-lg glass border border-gray-500 text-gray-200 font-semibold hover:border-neon-cyan hover:text-neon-cyan transition-all duration-300 flex items-center justify-center gap-2 group"
+                whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
                 Contact Me
@@ -98,7 +98,7 @@ export default function Home() {
           <motion.div variants={itemVariants} className="flex justify-center gap-6">
             <a href="https://github.com" target="_blank" rel="noopener noreferrer">
               <motion.div
-                className="p-3 rounded-lg glass border border-gray-700 text-gray-400 hover:text-neon-cyan cursor-pointer transition-all duration-300"
+                className="p-3.5 rounded-lg glass border border-gray-600 text-gray-400 hover:text-neon-cyan cursor-pointer transition-all duration-300"
                 whileHover={{ scale: 1.1, borderColor: '#00ffff' }}
               >
                 <Github size={24} />
@@ -106,16 +106,16 @@ export default function Home() {
             </a>
             <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
               <motion.div
-                className="p-3 rounded-lg glass border border-gray-700 text-gray-400 hover:text-neon-pink cursor-pointer transition-all duration-300"
-                whileHover={{ scale: 1.1, borderColor: '#ff006e' }}
+                className="p-3.5 rounded-lg glass border border-gray-600 text-gray-400 hover:text-neon-cyan cursor-pointer transition-all duration-300"
+                whileHover={{ scale: 1.1, borderColor: '#00ffff' }}
               >
                 <Linkedin size={24} />
               </motion.div>
             </a>
             <a href="mailto:contact@example.com">
               <motion.div
-                className="p-3 rounded-lg glass border border-gray-700 text-gray-400 hover:text-neon-green cursor-pointer transition-all duration-300"
-                whileHover={{ scale: 1.1, borderColor: '#00ff41' }}
+                className="p-3.5 rounded-lg glass border border-gray-600 text-gray-400 hover:text-neon-cyan cursor-pointer transition-all duration-300"
+                whileHover={{ scale: 1.1, borderColor: '#00ffff' }}
               >
                 <Mail size={24} />
               </motion.div>
@@ -128,8 +128,8 @@ export default function Home() {
             transition={{ duration: 2, repeat: Infinity }}
             className="mt-20"
           >
-            <div className="text-gray-500 text-sm">Scroll to explore</div>
-            <div className="text-2xl mt-2">↓</div>
+            <div className="text-gray-400 text-base">Scroll to explore</div>
+            <div className="text-3xl mt-2 text-gray-400">↓</div>
           </motion.div>
         </motion.div>
       </div>

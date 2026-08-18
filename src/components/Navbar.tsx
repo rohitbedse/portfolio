@@ -20,7 +20,7 @@ export default function Navbar() {
 
   return (
     <motion.nav
-      className="fixed top-0 z-50 w-full glass border-b border-gray-700"
+      className="fixed top-0 z-50 w-full glass-strong border-b border-gray-700"
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
@@ -38,11 +38,11 @@ export default function Navbar() {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-1">
+          <div className="hidden md:flex items-center gap-2">
             {links.map((link) => (
               <Link key={link.href} href={link.href}>
                 <motion.span
-                  className="px-3 py-2 text-sm font-medium text-gray-300 hover:text-neon-cyan transition-colors"
+                  className="px-4 py-2 text-sm font-medium text-gray-300 hover:text-neon-cyan transition-colors"
                   whileHover={{ scale: 1.05 }}
                 >
                   {link.label}

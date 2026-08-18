@@ -73,7 +73,7 @@ export default function HeroBackground() {
           const distance = Math.sqrt(dx * dx + dy * dy)
 
           if (distance < 150) {
-            ctx.strokeStyle = `rgba(0, 255, 255, ${(1 - distance / 150) * 0.3})`
+            ctx.strokeStyle = `rgba(0, 255, 255, ${(1 - distance / 150) * 0.15})`
             ctx.lineWidth = 1
             ctx.beginPath()
             ctx.moveTo(particle.x, particle.y)
@@ -98,12 +98,12 @@ export default function HeroBackground() {
       {/* Canvas for particles */}
       <canvas
         ref={canvasRef}
-        className="absolute inset-0 opacity-60"
+        className="absolute inset-0 opacity-35"
         style={{ mixBlendMode: 'screen' }}
       />
 
       {/* Gradient overlays */}
-      <div className="absolute inset-0 bg-gradient-to-b from-dark-bg via-transparent to-dark-bg opacity-50" />
+      <div className="absolute inset-0 bg-gradient-to-b from-dark-bg via-transparent to-dark-bg opacity-70" />
 
       {/* Animated background gradient */}
       <motion.div
