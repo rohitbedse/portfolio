@@ -3,7 +3,7 @@
     "target": "ES2017",
     "useDefineForClassFields": true,
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
-    "jsx": "react-jsx",
+    "jsx": "preserve",
     "module": "ESNext",
     "skipLibCheck": true,
     "esModuleInterop": true,
