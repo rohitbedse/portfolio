@@ -12,52 +12,61 @@ interface Message {
   hasMedia?: boolean
 }
 
-// Rohit's resume context for mocked AI responses
-const RESUME_CONTEXT = {
-  name: 'Rohit Bedse',
-  role: 'ML Engineer & GenAI Builder',
-  education: 'Final-year Data Science student',
-  skills: ['Python', 'LangChain', 'LangGraph', 'FastAPI', 'RAG Systems', 'LLM Orchestration', 'scikit-learn', 'SQL', 'Streamlit', 'Docker', 'Git'],
-  projects: [
-    'Multi-Agent Research System (LangGraph, Google Gemini)',
-    'AI Parallel Processing Pipeline (RunnableParallel, 70% latency reduction)',
-    'Chat with PDF — RAG System (FAISS, LangChain)',
-    'YouTube Sentiment Analysis (NLP, scikit-learn)',
-    'Linear Regression From Scratch (OLS, NumPy)',
-  ],
-  strengths: ['Mathematical foundations', 'Production-grade ML systems', 'GenAI architecture', 'Engineering discipline'],
-  interests: ['Multi-agent systems', 'RAG architectures', 'LLM fine-tuning', 'Multimodal AI'],
-  availability: 'Open to ML internships and collaborations',
+// Knowledge base for the chatbot
+const KNOWLEDGE_BASE = {
+  profile: {
+    keywords: ['who', 'rohit', 'about', 'person', 'profile'],
+    response: `I'm Rohit Bedse's AI Assistant. Rohit is an **AI Engineer & Data Scientist** specializing in production-grade ML systems. He bridges the gap between mathematical foundations and scalable AI engineering, with a heavy focus on Generative AI and Agentic workflows.`,
+  },
+  skills: {
+    keywords: ['skill', 'tech', 'stack', 'language', 'knowledge', 'expertise'],
+    response: `Rohit's technical arsenal is divided into three core domains:\n\n🛠️ **AI Engineering**: LangChain, LangGraph, RAG Architectures, Multi-Agent Systems, FastAPI, Docker.\n\n📊 **Data Science**: Python, scikit-learn, NumPy, Pandas, SQL, Matplotlib.\n\n🧠 **Foundations**: Linear Algebra, Calculus, Probability, OLS, Gradient Descent Optimization.`,
+  },
+  projects: {
+    keywords: ['project', 'work', 'built', 'portfolio', 'experience'],
+    response: `Rohit has built several production-ready AI systems:\n\n🤖 **Multi-Agent Research System**: Autonomous agents collaborating via LangGraph for deep synthesis.\n⚡ **AI Parallel Processing Pipeline**: High-performance orchestration using RunnableParallel for concurrent LLM invocation.\n📄 **Chat with PDF**: A professional RAG system with FAISS for semantic retrieval.\n📊 **YouTube Sentiment Analysis**: End-to-end NLP pipeline for social media insights.\n\nWould you like to know the technical details of a specific project?`,
+  },
+  experience: {
+    keywords: ['experience', 'work', 'intern', 'internship', 'career', 'education'],
+    response: `Rohit is an **AI Engineer** with a strong background in Data Science. His experience is characterized by a "Math-First" approach, ensuring that the systems he builds are not just wrappers around APIs, but are grounded in mathematical rigor. He is currently open to AI Engineering and ML Research collaborations.`,
+  },
+  rag: {
+    keywords: ['rag', 'retrieval', 'vector', 'embedding', 'faiss'],
+    response: `Rohit specializes in **Retrieval-Augmented Generation (RAG)**. His work focuses on overcoming the "lost-in-the-middle" problem and hallucinations. Key expertise includes:\n\n🔍 **Semantic Search**: Utilizing FAISS and advanced embedding models.\n📦 **Context Optimization**: Implementing recursive character splitting and hybrid retrieval.\n⚡ **Grounding**: Ensuring LLM responses are strictly tied to retrieved evidence.`,
+  },
+  agents: {
+    keywords: ['agent', 'multi-agent', 'langgraph', 'autonomous'],
+    response: `Rohit is deeply invested in **Agentic AI**. His Multi-Agent Research System uses LangGraph to orchestrate specialized agents (Researcher, Analyst, Supervisor). This allows for:\n\n🔄 **Reflection Loops**: Agents verify each other's work.\n🕸️ **Dynamic Routing**: Tasks are delegated based on agent capability.\n🧠 **Shared State**: Maintaining a global context across an autonomous workflow.`,
+  },
+  contact: {
+    keywords: ['contact', 'hire', 'reach', 'email', 'linkedin', 'github'],
+    response: `You can reach Rohit through the **Contact Form** on this portfolio. He's also active on **GitHub (rohitbedse)** for open-source contributions and technical discussions. He typically responds to professional inquiries within 24-48 hours.`,
+  },
+  greeting: {
+    keywords: ['hi', 'hello', 'hey', 'greetings'],
+    response: `Hello! 👋 I'm Rohit's AI Assistant. I can provide detailed information about his **AI Engineering expertise**, **Production Projects**, **Mathematical Foundations**, or **Contact Details**. What can I help you with today?`,
+  },
 }
+
+const SUGGESTED_QUESTIONS = [
+  { label: 'Tech Stack', question: 'What is your tech stack?' },
+  { label: 'RAG Work', question: 'Tell me about your RAG projects.' },
+  { label: 'Multi-Agent AI', question: 'How do your multi-agent systems work?' },
+  { label: 'Contact', question: 'How can I contact you?' },
+]
 
 function getAIResponse(input: string): string {
   const q = input.toLowerCase()
 
-  if (q.includes('who') && (q.includes('you') || q.includes('rohit')))
-    return `I'm Rohit Bedse's AI assistant! Rohit is a ${RESUME_CONTEXT.education} specializing as an ${RESUME_CONTEXT.role}. He builds production-grade ML systems with strong mathematical foundations. Want to know about his projects or skills?`
+  // Exact match or keyword search in knowledge base
+  for (const key in KNOWLEDGE_BASE) {
+    const entry = KNOWLEDGE_BASE[key] as any
+    if (entry.keywords.some((kw: string) => q.includes(kw))) {
+      return entry.response
+    }
+  }
 
-  if (q.includes('skill') || q.includes('tech') || q.includes('stack'))
-    return `Rohit's core stack includes:\n\n🐍 **Python** (primary language)\n🔗 **LangChain & LangGraph** for LLM orchestration\n⚡ **FastAPI** for APIs\n🔍 **RAG Systems** with vector databases\n📊 **scikit-learn** for classical ML\n🗃️ **SQL** for data\n🖥️ **Streamlit** for demos\n\nHe also works with Docker, Git, and AWS.`
-
-  if (q.includes('project'))
-    return `Here are Rohit's featured projects:\n\n🕸️ **Multi-Agent Research System** — Autonomous agents collaborating via LangGraph\n⚡ **AI Parallel Processing Pipeline** — 70% latency reduction with RunnableParallel\n📄 **Chat with PDF** — RAG system with FAISS vector search\n📊 **YouTube Sentiment Analysis** — End-to-end NLP pipeline\n📐 **Linear Regression From Scratch** — OLS math to implementation\n\nWant details on any specific project?`
-
-  if (q.includes('contact') || q.includes('hire') || q.includes('reach') || q.includes('email'))
-    return `Rohit is currently ${RESUME_CONTEXT.availability}. You can:\n\n📧 Email via the contact form on this page\n🐙 Check his GitHub: github.com/rohitbedse\n💼 Connect on LinkedIn\n\nHe typically responds within 24-48 hours!`
-
-  if (q.includes('experience') || q.includes('work') || q.includes('intern'))
-    return `Rohit is a ${RESUME_CONTEXT.education} actively seeking ML internship opportunities. His experience is project-driven — he's built ${RESUME_CONTEXT.projects.length}+ production-quality ML systems covering GenAI, classical ML, and NLP. He approaches every project with mathematical rigor and engineering discipline.`
-
-  if (q.includes('rag') || q.includes('retrieval'))
-    return `Rohit specializes in RAG (Retrieval-Augmented Generation) systems! He's built a **Chat with PDF** system using FAISS vector search + LangChain. His RAG work focuses on:\n\n🔍 Semantic document retrieval\n📦 Vector database integration\n🧠 Context-aware LLM responses\n⚡ Optimized embedding pipelines\n\nThis chatbot itself is designed to support multimodal RAG in the future! 🚀`
-
-  if (q.includes('agent') || q.includes('multi'))
-    return `Rohit's **Multi-Agent Research System** is one of his flagship projects! It features:\n\n🤖 Specialized AI agents with distinct roles\n🕸️ Built with LangGraph for agent orchestration\n🔄 Intelligent task delegation & result aggregation\n🧠 Powered by Google Gemini\n\nThe system demonstrates autonomous collaboration between AI agents to research and synthesize information.`
-
-  if (q.includes('hello') || q.includes('hi') || q.includes('hey'))
-    return `Hey there! 👋 I'm Rohit's AI assistant. I can tell you about:\n\n• His **skills & tech stack**\n• His **projects**\n• His **experience & availability**\n• **RAG systems** and **multi-agent** work\n\nWhat would you like to know?`
-
-  return `Great question! I'm Rohit's AI assistant and I can help with info about his:\n\n📋 **Skills** — Python, LangChain, ML, GenAI\n🚀 **Projects** — Multi-agent systems, RAG, NLP\n💼 **Availability** — Open for ML internships\n📧 **Contact** — How to reach him\n\nTry asking something specific!`
+  return `That's an interesting question! While I don't have a specific answer for that in my current knowledge base, I can tell you about Rohit's **AI Engineering skills**, **RAG projects**, or **Multi-Agent systems**. Feel free to try one of those!`
 }
 
 function TypingIndicator() {
@@ -103,18 +112,19 @@ export default function ChatBot() {
     }
   }, [messages, isTyping])
 
-  const sendMessage = useCallback(() => {
-    if (!input.trim()) return
+  const sendMessage = useCallback((textOverride?: string) => {
+    const messageText = textOverride || input
+    if (!messageText.trim()) return
 
     const userMsg: Message = {
       id: Date.now().toString(),
       role: 'user',
-      text: input.trim(),
+      text: messageText.trim(),
       timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
     }
 
     setMessages((prev) => [...prev, userMsg])
-    const q = input.trim()
+    const q = messageText.trim()
     setInput('')
     setIsTyping(true)
 
@@ -237,6 +247,24 @@ export default function ChatBot() {
                   <div className="bg-white/[0.03] border border-white/5 rounded-2xl">
                     <TypingIndicator />
                   </div>
+                </div>
+              )}
+
+              {/* Suggested Questions - Only show when messages are few or at start */}
+              {messages.length < 3 && !isTyping && (
+                <div className="grid grid-cols-2 gap-2 mt-4">
+                  {SUGGESTED_QUESTIONS.map((sq, i) => (
+                    <button
+                      key={i}
+                      onClick={() => {
+                        setInput(sq.question)
+                        sendMessage(sq.question)
+                      }}
+                      className="text-left p-2 rounded-lg border border-white/5 bg-white/[0.02] text-[11px] text-gray-400 hover:text-accent-blue hover:border-accent-blue/30 transition-all"
+                    >
+                      {sq.label}
+                    </button>
+                  ))}
                 </div>
               )}
             </div>

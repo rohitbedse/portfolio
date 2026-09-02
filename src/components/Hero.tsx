@@ -91,7 +91,7 @@ export default function Hero() {
         <motion.div variants={itemVariants} className="mb-8">
           <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass text-sm text-accent-blue font-medium">
             <Sparkles size={14} />
-            Available for ML Internships & Collaborations
+            Open for AI Engineering & Research Collaborations
           </span>
         </motion.div>
 
@@ -119,8 +119,8 @@ export default function Hero() {
           ML Engineer building production-grade AI systems — from mathematical foundations
           to deployed GenAI pipelines. Specializing in{' '}
           <span className="text-accent-blue">LLM orchestration</span>,{' '}
-          <span className="text-accent-blue">RAG architectures</span>, and{' '}
-          <span className="text-accent-blue">multi-agent systems</span>.
+          <span className="text-accent-blue">Autonomous Agent Frameworks</span>, and{' '}
+          <span className="text-accent-blue">Advanced RAG architectures</span>.
         </motion.p>
 
         {/* CTA Buttons */}

@@ -6,34 +6,34 @@ import { Play, BookOpen, Zap, Code, Brain, GitBranch } from 'lucide-react'
 const journey = [
   {
     icon: Code,
-    title: 'Foundation',
+    title: 'Engineering Foundations',
     description:
-      'Started with Python fundamentals and data structures. Built first projects with Streamlit, establishing a strong engineering base.',
+      'Mastering high-performance Python and scalable data pipelines. Focused on building robust, maintainable software architectures for ML workloads.',
   },
   {
     icon: Brain,
-    title: 'ML Deep Dive',
+    title: 'Mathematical Rigor',
     description:
-      'Understood Linear Regression from OLS mathematical principles. Compared analytical solutions with sklearn and gradient descent.',
+      'Deep dive into the foundations of ML — from deriving OLS mathematically to implementing custom gradient descent optimizers.',
   },
   {
     icon: GitBranch,
-    title: 'Model Mastery',
+    title: 'Systemic ML',
     description:
-      'Built expertise in error metrics, model evaluation, feature engineering, and EDA. Developed reproducible ML pipelines.',
+      'Developing reproducible ML pipelines with a focus on rigorous model evaluation, advanced feature engineering, and EDA.',
   },
   {
     icon: Zap,
-    title: 'GenAI Era',
+    title: 'AI Orchestration',
     description:
-      'Transitioned to LLM orchestration — LangChain, LangGraph, RAG systems, multi-agent architectures, and prompt engineering.',
+      'Architecting production GenAI systems: LangGraph multi-agent frameworks, hybrid RAG strategies, and LLM optimization.',
   },
 ]
 
 const stats = [
-  { value: '15+', label: 'ML Projects Built' },
-  { value: '5+', label: 'Technologies Mastered' },
-  { value: '100%', label: 'Math-First Approach' },
+  { value: '15+', label: 'Production AI Systems' },
+  { value: 'End-to-End', label: 'AI Lifecycle Expertise' },
+  { value: 'Math-First', label: 'Architecture Approach' },
 ]
 
 const containerVariants = {
@@ -72,8 +72,8 @@ export default function About() {
             About <span className="gradient-text">Me</span>
           </motion.h2>
           <motion.p variants={itemVariants} className="text-gray-400 max-w-2xl mx-auto text-lg">
-            Final-year Data Science student building ML systems with mathematical intuition
-            and engineering discipline. Preparing for ML roles with a focus on GenAI and LLM systems.
+            AI Engineer & Data Scientist building production ML systems with mathematical intuition
+            and engineering discipline. Specializing in the intersection of GenAI, RAG, and Agentic workflows.
           </motion.p>
         </motion.div>
 
