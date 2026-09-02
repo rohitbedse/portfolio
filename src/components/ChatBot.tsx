@@ -12,8 +12,12 @@ interface Message {
   hasMedia?: boolean
 }
 
-// Knowledge base for the chatbot
-const KNOWLEDGE_BASE = {
+interface KnowledgeEntry {
+  keywords: string[]
+  response: string
+}
+
+const KNOWLEDGE_BASE: Record<string, KnowledgeEntry> = {
   profile: {
     keywords: ['who', 'rohit', 'about', 'person', 'profile'],
     response: `I'm Rohit Bedse's AI Assistant. Rohit is an **AI Engineer & Data Scientist** specializing in production-grade ML systems. He bridges the gap between mathematical foundations and scalable AI engineering, with a heavy focus on Generative AI and Agentic workflows.`,
