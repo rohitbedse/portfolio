@@ -18,7 +18,7 @@ const config: Config = {
         'glass-border': 'rgba(255, 255, 255, 0.08)',
       },
       fontFamily: {
-        sans: ['Space Grotesk', 'system-ui', 'sans-serif'],
+        sans: ['var(--font-space-grotesk)', 'system-ui', 'sans-serif'],
       },
       animation: {
         'cursor-blink': 'cursorBlink 1s step-end infinite',

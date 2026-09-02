@@ -136,7 +136,7 @@ export default function About() {
                 </motion.div>
                 <div className="absolute bottom-3 left-3 right-3">
                   <span className="inline-block px-2 py-0.5 rounded text-[10px] font-semibold bg-accent-violet/20 text-accent-violet uppercase tracking-wider">
-                    Coming Soon
+                    In Development
                   </span>
                 </div>
               </div>

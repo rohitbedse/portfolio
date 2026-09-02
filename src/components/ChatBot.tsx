@@ -91,12 +91,19 @@ export default function ChatBot() {
       id: '0',
       role: 'assistant',
       text: "Hey! 👋 I'm Rohit's AI assistant. Ask me anything about his skills, projects, or experience!",
-      timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+      timestamp: '',
     },
   ])
   const [input, setInput] = useState('')
   const [isTyping, setIsTyping] = useState(false)
   const scrollRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    setMessages(prev => prev.map(msg => ({
+      ...msg,
+      timestamp: msg.timestamp || new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+    })))
+  }, [])
 
   // Listen for open event from hero CTA
   useEffect(() => {
