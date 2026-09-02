@@ -319,7 +319,7 @@ export default function ChatBot() {
                   aria-label="Chat message input"
                 />
                 <button
-                  onClick={sendMessage}
+                  onClick={() => sendMessage()}
                   disabled={!input.trim()}
                   className={`p-1.5 rounded-lg transition-colors ${
                     input.trim()
