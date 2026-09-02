@@ -59,9 +59,9 @@ function getAIResponse(input: string): string {
   const q = input.toLowerCase()
 
   // Exact match or keyword search in knowledge base
-  for (const key in KNOWLEDGE_BASE) {
-    const entry = KNOWLEDGE_BASE[key] as any
-    if (entry.keywords.some((kw: string) => q.includes(kw))) {
+  for (const key of Object.keys(KNOWLEDGE_BASE) as Array<keyof typeof KNOWLEDGE_BASE>) {
+    const entry = KNOWLEDGE_BASE[key]
+    if (entry.keywords.some((kw) => q.includes(kw))) {
       return entry.response
     }
   }
@@ -308,7 +308,7 @@ export default function ChatBot() {
                   aria-label="Chat message input"
                 />
                 <button
-                  onClick={sendMessage}
+                  onClick={() => sendMessage()}
                   disabled={!input.trim()}
                   className={`p-1.5 rounded-lg transition-colors ${
                     input.trim()
