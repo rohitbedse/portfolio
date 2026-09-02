@@ -234,7 +234,7 @@ export default function ProjectsGallery() {
                       rel="noopener noreferrer"
                       onClick={(e) => e.stopPropagation()}
                       className="flex items-center gap-2 text-sm text-gray-500 hover:text-accent-blue transition-colors"
-                      aria-label={\`\${project.title} GitHub\`}
+                      aria-label={`${project.title} GitHub`}
                     >
                       <Github size={16} />
                       <span className="hidden sm:inline">Code</span>
@@ -246,7 +246,7 @@ export default function ProjectsGallery() {
                         rel="noopener noreferrer"
                         onClick={(e) => e.stopPropagation()}
                         className="flex items-center gap-2 text-sm text-gray-500 hover:text-accent-violet transition-colors"
-                        aria-label={\`\${project.title} Live Demo\`}
+                        aria-label={`${project.title} Live Demo`}
                       >
                         <ExternalLink size={16} />
                         <span className="hidden sm:inline">Demo</span>
