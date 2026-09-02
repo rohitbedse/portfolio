@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect, useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { MessageSquare, X, Send, Paperclip, Image, FileText, Sparkles } from 'lucide-react'
+import { MessageSquare, X, Send, Paperclip, Image as ImageIcon, FileText, Sparkles } from 'lucide-react'
 
 interface Message {
   id: string
@@ -230,7 +230,7 @@ export default function ChatBot() {
                     {/* Expandable media hint (future RAG multimodal) */}
                     {msg.hasMedia && (
                       <div className="mt-2 p-2 rounded-lg bg-white/[0.03] border border-white/5 flex items-center gap-2 text-[11px] text-gray-600 cursor-pointer hover:bg-white/[0.06] transition-colors">
-                        <Image size={14} />
+                        <ImageIcon size={14} aria-label="Retrieved media icon" />
                         <span>Retrieved media available</span>
                       </div>
                     )}
@@ -283,7 +283,7 @@ export default function ChatBot() {
                 aria-label="Send image (coming soon)"
                 title="Image retrieval — coming soon"
               >
-                <Image size={16} />
+                <ImageIcon size={16} aria-label="Image retrieval icon" />
               </button>
               <button
                 className="text-gray-600 hover:text-gray-400 transition-colors"

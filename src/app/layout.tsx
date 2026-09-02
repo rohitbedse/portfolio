@@ -1,9 +1,16 @@
 import type { Metadata } from 'next'
+import { Space_Grotesk } from 'next/font/google'
 import { ReactNode } from 'react'
 import './globals.css'
 import Navbar from '@/components/Navbar'
 import ChatBot from '@/components/ChatBot'
 import SEO from '@/components/SEO'
+
+const spaceGrotesk = Space_Grotesk({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700'],
+  variable: '--font-space-grotesk',
+})
 
 export const metadata: Metadata = {
   title: {
@@ -58,18 +65,12 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning className={spaceGrotesk.variable}>
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
-          rel="stylesheet"
-        />
       </head>
-      <body className="bg-bg-deep text-gray-200 antialiased">
+      <body className="bg-bg-deep text-gray-200 antialiased font-sans">
         <SEO />
         <Navbar />
         <main>{children}</main>
