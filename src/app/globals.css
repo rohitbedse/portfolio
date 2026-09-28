@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ========== RESET ========== */
 * {
   margin: 0;
   padding: 0;
@@ -15,165 +14,169 @@ html {
 }
 
 body {
-  background: #050510;
-  color: #e2e8f0;
+  background: #08090d;
+  color: #f2f4f8;
   font-family: 'Space Grotesk', system-ui, sans-serif;
   min-height: 100vh;
   overflow-x: hidden;
 }
 
-/* ========== SCROLLBAR ========== */
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #050510;
+  background: #08090d;
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(0, 212, 255, 0.3);
-  border-radius: 3px;
+  background: rgba(108, 140, 255, 0.25);
+  border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(0, 212, 255, 0.5);
+  background: rgba(108, 140, 255, 0.45);
 }
 
-/* ========== GLASS ========== */
-.glass {
-  background: rgba(255, 255, 255, 0.04);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+/* ========== SURFACES ========== */
+.surface {
+  background: #0f1116;
   border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.glass-strong {
-  background: rgba(10, 15, 30, 0.88);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+.nav-blur {
+  background: rgba(8, 9, 13, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.card {
+  background: #0f1116;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1rem;
+  transition: border-color 0.25s ease, transform 0.25s ease, background 0.25s ease;
+}
+.card:hover {
+  border-color: rgba(108, 140, 255, 0.35);
+  background: #121420;
+}
+
+/* ========== TEXT ========== */
+.accent-text {
+  color: #6c8cff;
+}
+
+.eyebrow {
+  color: #6c8cff;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+/* ========== BUTTONS ========== */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.75rem;
+  border-radius: 0.75rem;
+  background: #6c8cff;
+  color: #08090d;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all 0.25s ease;
+}
+.btn-primary:hover {
+  background: #86a0ff;
+  box-shadow: 0 8px 24px rgba(108, 140, 255, 0.25);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.75rem;
+  border-radius: 0.75rem;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: #f2f4f8;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all 0.25s ease;
+}
+.btn-secondary:hover {
+  border-color: rgba(108, 140, 255, 0.5);
+  background: rgba(108, 140, 255, 0.06);
+}
+
+.icon-btn {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 0.65rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #9aa1b2;
+  transition: all 0.2s ease;
 }
-
-/* ========== GRADIENTS ========== */
-.gradient-text {
-  background: linear-gradient(135deg, #00d4ff 0%, #8b5cf6 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.gradient-text-green {
-  background: linear-gradient(135deg, #06ffa5 0%, #00d4ff 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-/* ========== GRADIENT BORDER ========== */
-.gradient-border {
-  position: relative;
-  background: rgba(10, 15, 30, 0.9);
-  border-radius: 1rem;
-  overflow: hidden;
-}
-.gradient-border::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: 1rem;
-  padding: 1px;
-  background: linear-gradient(135deg, rgba(0, 212, 255, 0.3), rgba(139, 92, 246, 0.3));
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  pointer-events: none;
-  transition: all 0.4s ease;
-}
-.gradient-border:hover::before {
-  padding: 1.5px;
-  background: linear-gradient(135deg, rgba(0, 212, 255, 0.7), rgba(139, 92, 246, 0.7));
-}
-
-/* ========== GLOW EFFECTS ========== */
-.glow-blue {
-  box-shadow: 0 0 20px rgba(0, 212, 255, 0.4), inset 0 0 20px rgba(0, 212, 255, 0.05);
-}
-.glow-violet {
-  box-shadow: 0 0 20px rgba(139, 92, 246, 0.4), inset 0 0 20px rgba(139, 92, 246, 0.05);
+.icon-btn:hover {
+  color: #6c8cff;
+  border-color: rgba(108, 140, 255, 0.4);
+  background: rgba(108, 140, 255, 0.06);
 }
 
 /* ========== FORM INPUTS ========== */
 .input-field {
   width: 100%;
-  padding: 0.875rem 1.25rem;
-  border-radius: 0.75rem;
-  background: rgba(255, 255, 255, 0.04);
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  color: #e2e8f0;
+  padding: 0.85rem 1.1rem;
+  border-radius: 0.65rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #f2f4f8;
   font-family: inherit;
   font-size: 0.938rem;
   outline: none;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
 }
 .input-field::placeholder {
-  color: rgba(148, 163, 184, 0.5);
+  color: rgba(154, 161, 178, 0.55);
 }
 .input-field:focus {
-  border-color: rgba(0, 212, 255, 0.5);
-  box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.1);
+  border-color: rgba(108, 140, 255, 0.5);
+  box-shadow: 0 0 0 3px rgba(108, 140, 255, 0.12);
 }
 .input-field.error {
-  border-color: rgba(239, 68, 68, 0.5);
+  border-color: rgba(239, 68, 68, 0.55);
   box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
 }
 .input-field.success {
-  border-color: rgba(6, 255, 165, 0.5);
-  box-shadow: 0 0 0 3px rgba(6, 255, 165, 0.1);
+  border-color: rgba(52, 211, 153, 0.5);
+  box-shadow: 0 0 0 3px rgba(52, 211, 153, 0.1);
 }
 
-/* ========== TYPING CURSOR ========== */
-.typing-cursor::after {
-  content: '|';
-  display: inline-block;
-  color: #00d4ff;
-  animation: cursorBlink 1s step-end infinite;
-  margin-left: 2px;
-  font-weight: 300;
-}
-
-@keyframes cursorBlink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
-}
-
-/* ========== SKILL CARD 3D ========== */
-.skill-card-3d {
-  perspective: 800px;
-  transform-style: preserve-3d;
-}
-
-/* ========== CHATBOT ========== */
-.chat-scrollbar::-webkit-scrollbar {
-  width: 4px;
-}
-.chat-scrollbar::-webkit-scrollbar-track {
-  background: transparent;
-}
-.chat-scrollbar::-webkit-scrollbar-thumb {
-  background: rgba(0, 212, 255, 0.2);
-  border-radius: 2px;
-}
-
-/* ========== SECTION SPACING ========== */
+/* ========== LAYOUT ========== */
 .section-padding {
-  padding: 6rem 1rem;
+  padding: 5.5rem 1.25rem;
 }
 @media (min-width: 640px) {
   .section-padding {
-    padding: 7rem 1.5rem;
+    padding: 6.5rem 1.5rem;
   }
 }
 @media (min-width: 1024px) {
   .section-padding {
-    padding: 8rem 2rem;
+    padding: 7.5rem 2rem;
   }
+}
+
+/* ========== HERO GRID BACKDROP ========== */
+.hero-grid {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 30%, black 40%, transparent 90%);
+  -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 30%, black 40%, transparent 90%);
 }

@@ -1,8 +1,8 @@
 import Hero from '@/components/Hero'
 import About from '@/components/About'
-import SkillsUniverse from '@/components/SkillsUniverse'
-import ProjectsGallery from '@/components/ProjectsGallery'
-import ContactForm from '@/components/ContactForm'
+import Skills from '@/components/Skills'
+import Projects from '@/components/Projects'
+import Contact from '@/components/Contact'
 import Footer from '@/components/Footer'
 
 export default function Home() {
@@ -10,9 +10,9 @@ export default function Home() {
     <>
       <Hero />
       <About />
-      <SkillsUniverse />
-      <ProjectsGallery />
-      <ContactForm />
+      <Skills />
+      <Projects />
+      <Contact />
       <Footer />
     </>
   )

@@ -3,8 +3,6 @@ import { Space_Grotesk } from 'next/font/google'
 import { ReactNode } from 'react'
 import './globals.css'
 import Navbar from '@/components/Navbar'
-import ChatBot from '@/components/ChatBot'
-import SEO from '@/components/SEO'
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ['latin'],
@@ -30,7 +28,6 @@ export const metadata: Metadata = {
     'LLM Orchestration',
     'LangGraph',
     'LangChain',
-    'AI Engineering',
   ],
   authors: [{ name: 'Rohit Bedse', url: 'https://rohitbedse.dev' }],
   creator: 'Rohit Bedse',
@@ -63,14 +60,35 @@ export const metadata: Metadata = {
   },
 }
 
+const personJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Rohit Bedse',
+  url: 'https://rohitbedse.dev',
+  jobTitle: 'AI Engineer & Data Scientist',
+  description: 'AI Engineer specializing in Multi-Agent Systems, RAG architectures, and Generative AI.',
+  sameAs: ['https://github.com/rohitbedse', 'https://linkedin.com/in/rohitbedse'],
+  knowsAbout: [
+    'Machine Learning',
+    'Generative AI',
+    'RAG',
+    'LLM Orchestration',
+    'LangGraph',
+    'Python',
+    'Data Science',
+  ],
+}
+
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning className={spaceGrotesk.variable}>
-      <body className="bg-bg-deep text-gray-200 antialiased font-sans">
-        <SEO />
+      <body className="bg-bg text-ink-secondary antialiased font-sans">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+        />
         <Navbar />
         <main>{children}</main>
-        <ChatBot />
       </body>
     </html>
   )
