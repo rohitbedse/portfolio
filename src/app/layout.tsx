@@ -3,6 +3,8 @@ import { Space_Grotesk } from 'next/font/google'
 import { ReactNode } from 'react'
 import './globals.css'
 import Navbar from '@/components/Navbar'
+import ScrollProgress from '@/components/fx/ScrollProgress'
+import CursorGlow from '@/components/fx/CursorGlow'
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ['latin'],
@@ -87,6 +89,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
         />
+        <div className="grain" aria-hidden />
+        <ScrollProgress />
+        <CursorGlow />
         <Navbar />
         <main>{children}</main>
       </body>
