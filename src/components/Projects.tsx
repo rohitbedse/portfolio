@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import SpotlightCard from '@/components/fx/SpotlightCard'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ExternalLink, Github, X, Target, Lightbulb, Cpu, TrendingUp } from 'lucide-react'
 
@@ -160,13 +161,14 @@ export default function Projects() {
           viewport={{ once: true, margin: '-50px' }}
         >
           {projects.map((project, i) => (
-            <motion.div
+            <SpotlightCard
               key={i}
               variants={itemVariants}
-              className="card p-6 cursor-pointer flex flex-col"
+              className="p-6 cursor-pointer flex flex-col group"
               onClick={() => setSelected(project)}
             >
-              <h3 className="text-lg font-semibold text-ink-primary mb-2.5">{project.title}</h3>
+              <span className="!absolute top-5 right-5 text-xs font-mono text-ink-tertiary">0{i + 1}</span>
+              <h3 className="text-lg font-semibold text-ink-primary mb-2.5 pr-8 transition-colors group-hover:text-accent">{project.title}</h3>
               <p className="text-ink-secondary text-sm leading-relaxed mb-5 flex-grow">{project.description}</p>
 
               <div className="flex flex-wrap gap-2 mb-5">
@@ -199,7 +201,7 @@ export default function Projects() {
                   </a>
                 )}
               </div>
-            </motion.div>
+            </SpotlightCard>
           ))}
         </motion.div>
 

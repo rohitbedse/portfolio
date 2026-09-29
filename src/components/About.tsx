@@ -1,5 +1,6 @@
 'use client'
 
+import SpotlightCard from '@/components/fx/SpotlightCard'
 import { motion } from 'framer-motion'
 import { Code, Brain, GitBranch, Zap, MapPin, GraduationCap, Briefcase, Clock } from 'lucide-react'
 
@@ -87,13 +88,13 @@ export default function About() {
             {journey.map((item, i) => {
               const Icon = item.icon
               return (
-                <motion.div key={i} variants={itemVariants} className="card p-6">
-                  <div className="w-10 h-10 rounded-lg bg-accent-dim flex items-center justify-center mb-4">
+                <SpotlightCard key={i} variants={itemVariants} className="p-6 group">
+                  <div className="w-10 h-10 rounded-lg bg-accent-dim flex items-center justify-center mb-4 transition-transform duration-300 group-hover:rotate-6 group-hover:scale-110">
                     <Icon size={20} className="accent-text" />
                   </div>
                   <h3 className="text-base font-semibold mb-2 text-ink-primary">{item.title}</h3>
                   <p className="text-ink-secondary text-sm leading-relaxed">{item.description}</p>
-                </motion.div>
+                </SpotlightCard>
               )
             })}
           </motion.div>
@@ -135,8 +136,8 @@ export default function About() {
           viewport={{ once: true, margin: '-100px' }}
         >
           {stats.map((stat, i) => (
-            <motion.div key={i} variants={itemVariants} className="text-center py-7 rounded-2xl surface">
-              <div className="text-3xl md:text-4xl font-bold accent-text mb-1.5">{stat.value}</div>
+            <motion.div key={i} variants={itemVariants} className="text-center py-7 rounded-2xl surface transition-all duration-300 hover:-translate-y-1 hover:border-accent/40 hover:shadow-[0_20px_50px_-20px_rgba(108,140,255,0.45)]">
+              <div className="text-3xl md:text-4xl font-bold gradient-text mb-1.5">{stat.value}</div>
               <p className="text-ink-secondary text-sm">{stat.label}</p>
             </motion.div>
           ))}

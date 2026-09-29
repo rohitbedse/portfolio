@@ -3,6 +3,8 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ArrowDown, Github, Linkedin, Mail } from 'lucide-react'
+import NeuralField from '@/components/fx/NeuralField'
+import Magnetic from '@/components/fx/Magnetic'
 
 const roles = [
   'Building Multi-Agent AI Systems',
@@ -41,7 +43,10 @@ export default function Hero() {
   return (
     <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
       <div className="absolute inset-0 hero-grid pointer-events-none" />
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full bg-accent/10 blur-[120px] pointer-events-none" />
+      <div className="aurora top-[10%] left-[15%] w-[420px] h-[420px] bg-accent/40" />
+      <div className="aurora top-[35%] right-[10%] w-[380px] h-[380px] bg-violet-500/30 [animation-delay:-6s]" />
+      <NeuralField />
+      <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-bg to-transparent pointer-events-none" />
 
       <motion.div
         className="relative z-10 text-center max-w-4xl mx-auto px-5 pt-16"
@@ -51,14 +56,14 @@ export default function Hero() {
       >
         <motion.div variants={itemVariants} className="mb-7">
           <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full surface text-sm text-ink-secondary">
-            <span className="w-1.5 h-1.5 rounded-full bg-accent" />
+            <span className="pulse-dot w-1.5 h-1.5 rounded-full bg-emerald-400" />
             Open to AI Engineering & Research roles
           </span>
         </motion.div>
 
         <motion.h1
           variants={itemVariants}
-          className="text-5xl sm:text-6xl md:text-7xl font-bold mb-5 tracking-tight text-ink-primary"
+          className="text-6xl sm:text-7xl md:text-8xl font-bold mb-5 tracking-tight gradient-text"
         >
           Rohit Bedse
         </motion.h1>
@@ -85,12 +90,16 @@ export default function Hero() {
         </motion.p>
 
         <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-          <button onClick={scrollToProjects} className="btn-primary">
-            View Projects
-          </button>
-          <button onClick={scrollToContact} className="btn-secondary">
-            Get in Touch
-          </button>
+          <Magnetic>
+            <button onClick={scrollToProjects} className="btn-primary">
+              View Projects
+            </button>
+          </Magnetic>
+          <Magnetic>
+            <button onClick={scrollToContact} className="btn-secondary">
+              Get in Touch
+            </button>
+          </Magnetic>
         </motion.div>
 
         <motion.div variants={itemVariants} className="flex items-center justify-center gap-3 mb-14">
